@@ -1,0 +1,5 @@
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\LOGICA\bin\Debug\netstandard2.0\LOGICA.deps.json
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\LOGICA\bin\Debug\netstandard2.0\LOGICA.dll
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\LOGICA\obj\Debug\netstandard2.0\LOGICA.csprojAssemblyReference.cache
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\LOGICA\obj\Debug\netstandard2.0\LOGICA.AssemblyInfoInputs.cache
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\LOGICA\obj\Debug\netstandard2.0\LOGICA.AssemblyInfo.cs

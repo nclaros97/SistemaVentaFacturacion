@@ -1,0 +1,15 @@
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\SistemaVentaFacturacion.exe.config
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\SistemaVentaFacturacion.exe
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\SistemaVentaFacturacion.pdb
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\DATOS.dll
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\System.Data.SqlClient.dll
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\DATOS.pdb
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\System.Data.SqlClient.xml
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.csprojAssemblyReference.cache
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Form1.resources
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Properties.Resources.resources
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.csproj.GenerateResource.cache
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.csproj.CoreCompileInputs.cache
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.csproj.CopyComplete
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.exe
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.pdb
