@@ -4,17 +4,12 @@ C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\obj\Debug\nets
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\DATOS.deps.json
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\DATOS.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\DATOS.pdb
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\MySql.Data.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Windows.Forms.dll
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\Google.Protobuf.dll
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\BouncyCastle.Crypto.dll
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\Renci.SshNet.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Configuration.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Security.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\Accessibility.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Deployment.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.dll
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\MySql.Data.xml
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Windows.Forms.xml
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Configuration.xml
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\DATOS\bin\Debug\netstandard2.0\System.Security.xml

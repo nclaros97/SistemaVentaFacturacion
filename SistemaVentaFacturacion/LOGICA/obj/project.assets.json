@@ -217,6 +217,19 @@
             "rid": "win"
           }
         }
+      },
+      "DATOS/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "System.Data.SqlClient": "4.8.1"
+        },
+        "compile": {
+          "bin/placeholder/DATOS.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DATOS.dll": {}
+        }
       }
     }
   },
@@ -839,10 +852,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "DATOS/1.0.0": {
+      "type": "project",
+      "path": "../DATOS/DATOS.csproj",
+      "msbuildProject": "../DATOS/DATOS.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "DATOS >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "System.Data.SqlClient >= 4.8.1"
     ]
@@ -876,7 +895,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\nilso\\Desktop\\PROYECTO LIZ\\SistemaVentaFacturacion\\DATOS\\DATOS.csproj": {
+              "projectPath": "C:\\Users\\nilso\\Desktop\\PROYECTO LIZ\\SistemaVentaFacturacion\\DATOS\\DATOS.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
