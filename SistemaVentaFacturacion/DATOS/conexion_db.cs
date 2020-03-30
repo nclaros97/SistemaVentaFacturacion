@@ -17,8 +17,10 @@ namespace DATOS
             string pssw = "admin@2020";
             try
             {
+                //conexion = new SqlConnection($"Data Source={servidor};Integrated " +
+                //$"Security=False;Initial Catalog={database};User Id={usuario};Password={pssw};");
                 conexion = new SqlConnection($"Data Source={servidor};Integrated " +
-                $"Security=False;Initial Catalog={database};User Id={usuario};Password={pssw};");
+                $"Security=True;Initial Catalog={database};");
                 conexion.Open();
                 
             }

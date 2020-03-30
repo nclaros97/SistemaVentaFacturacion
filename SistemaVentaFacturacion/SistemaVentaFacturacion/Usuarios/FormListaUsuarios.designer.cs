@@ -31,17 +31,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormListaUsuarios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.GridUsuarios = new System.Windows.Forms.DataGridView();
-            this.rol = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.Gestion_Usuarios = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,6 +63,8 @@
             // 
             // btnNuevo
             // 
+            this.btnNuevo.AccessibleDescription = "Insertar Usuario";
+            this.btnNuevo.AccessibleName = "Insertar";
             this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Default;
@@ -84,6 +86,8 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.AccessibleDescription = "Eliminar Usuario";
+            this.btnEliminar.AccessibleName = "Eliminar";
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Default;
@@ -105,6 +109,8 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.AccessibleDescription = "Editar Usuario";
+            this.btnEditar.AccessibleName = "Editar";
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Default;
@@ -145,7 +151,7 @@
             this.GridUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridUsuarios.ColumnHeadersHeight = 30;
             this.GridUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.rol});
+            this.Gestion_Usuarios});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -171,19 +177,6 @@
             this.GridUsuarios.TabIndex = 14;
             this.GridUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridUsuarios_CellClick);
             this.GridUsuarios.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridUsuarios_CellMouseMove);
-            // 
-            // rol
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            this.rol.DefaultCellStyle = dataGridViewCellStyle2;
-            this.rol.HeaderText = "ROLES";
-            this.rol.Image = global::SistemaVentaFacturacion.Properties.Resources.rol;
-            this.rol.Name = "rol";
             // 
             // dataGridViewImageColumn1
             // 
@@ -215,8 +208,25 @@
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // Gestion_Usuarios
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            this.Gestion_Usuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Gestion_Usuarios.Description = "Visualizar";
+            this.Gestion_Usuarios.HeaderText = "GESTION USUARIO";
+            this.Gestion_Usuarios.Image = global::SistemaVentaFacturacion.Properties.Resources.rol;
+            this.Gestion_Usuarios.Name = "Gestion_Usuarios";
+            this.Gestion_Usuarios.ReadOnly = true;
+            this.Gestion_Usuarios.ToolTipText = "Visualizar";
+            // 
             // FormListaUsuarios
             // 
+            this.AccessibleName = "Formulario Usuarios";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -228,8 +238,8 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.BtnCerrar);
             this.Name = "FormListaUsuarios";
-            this.Text = "FormListaClientes";
-            this.Load += new System.EventHandler(this.FormListaClientes_Load);
+            this.Text = "FormListaUsuarios";
+            this.Load += new System.EventHandler(this.FormListaUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -245,6 +255,6 @@
         private System.Windows.Forms.Button BtnCerrar;
         private System.Windows.Forms.DataGridView GridUsuarios;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewImageColumn rol;
+        private System.Windows.Forms.DataGridViewImageColumn Gestion_Usuarios;
     }
 }

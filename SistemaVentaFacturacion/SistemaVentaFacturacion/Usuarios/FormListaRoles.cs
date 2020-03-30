@@ -34,14 +34,28 @@ namespace SistemaVentaFacturacion.Usuarios
             try
             {
                 GridRoles.DataSource = scriptsUsuarios.getGridRoles(UserId);
-                cbRoles.ValueMember = "rolId";
-                cbRoles.DisplayMember = "rolDescripcion";
+                cbRoles.ValueMember = "ID";
+                cbRoles.DisplayMember = "ROL";
                 cbRoles.DataSource = scriptsUsuarios.cbRoles();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"ERROR: \n {ex.Message.ToString()}");
             }
+
+            foreach (Control item in this.Controls)
+            {
+                if(item is Button)
+                {
+                    if (!item.Name.Equals("btnCerrar"))
+                    {
+                        item.Enabled = false;
+                    }
+                }
+            }
+
+            validaciones.seguridad_opcionesListaRolesUser(this.Controls, this.AccessibleName);
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

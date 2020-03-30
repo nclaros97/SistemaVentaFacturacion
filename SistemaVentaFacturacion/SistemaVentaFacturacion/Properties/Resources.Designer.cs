@@ -73,6 +73,16 @@ namespace SistemaVentaFacturacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap articulos {
+            get {
+                object obj = ResourceManager.GetObject("articulos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap basura {
             get {
                 object obj = ResourceManager.GetObject("basura", resourceCulture);
@@ -143,6 +153,16 @@ namespace SistemaVentaFacturacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap contabilidad {
+            get {
+                object obj = ResourceManager.GetObject("contabilidad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dashboard {
             get {
                 object obj = ResourceManager.GetObject("Dashboard", resourceCulture);
@@ -156,6 +176,16 @@ namespace SistemaVentaFacturacion.Properties {
         internal static System.Drawing.Bitmap editar {
             get {
                 object obj = ResourceManager.GetObject("editar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap factura {
+            get {
+                object obj = ResourceManager.GetObject("factura", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +256,26 @@ namespace SistemaVentaFacturacion.Properties {
         internal static System.Drawing.Bitmap iniciar_sesion11 {
             get {
                 object obj = ResourceManager.GetObject("iniciar-sesion11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap inventario {
+            get {
+                object obj = ResourceManager.GetObject("inventario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap listaCompra {
+            get {
+                object obj = ResourceManager.GetObject("listaCompra", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

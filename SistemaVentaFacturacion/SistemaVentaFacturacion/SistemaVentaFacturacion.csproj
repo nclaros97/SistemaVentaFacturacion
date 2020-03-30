@@ -198,35 +198,17 @@
     <Compile Include="Usuarios\FormListaUsuarios.designer.cs">
       <DependentUpon>FormListaUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\FormMantFuncionesRolesPermisos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuarios\FormMantFuncionesRolesPermisos.designer.cs">
-      <DependentUpon>FormMantFuncionesRolesPermisos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Usuarios\FormMantRoles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuarios\FormMantRoles.designer.cs">
       <DependentUpon>FormMantRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\FormMantRolesUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuarios\FormMantRolesUsuario.designer.cs">
-      <DependentUpon>FormMantRolesUsuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Usuarios\FormMantPermisosFunciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuarios\FormMantPermisosFunciones.designer.cs">
       <DependentUpon>FormMantPermisosFunciones.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Usuarios\FormMantTiposPermisos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuarios\FormMantTiposPermisos.designer.cs">
-      <DependentUpon>FormMantTiposPermisos.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\FormMantFuncionesRoles.cs">
       <SubType>Form</SubType>
@@ -310,20 +292,11 @@
     <EmbeddedResource Include="Usuarios\FormListaUsuarios.resx">
       <DependentUpon>FormListaUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuarios\FormMantFuncionesRolesPermisos.resx">
-      <DependentUpon>FormMantFuncionesRolesPermisos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\FormMantRoles.resx">
       <DependentUpon>FormMantRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuarios\FormMantRolesUsuario.resx">
-      <DependentUpon>FormMantRolesUsuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\FormMantPermisosFunciones.resx">
       <DependentUpon>FormMantPermisosFunciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usuarios\FormMantTiposPermisos.resx">
-      <DependentUpon>FormMantTiposPermisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\FormMantFuncionesRoles.resx">
       <DependentUpon>FormMantFuncionesRoles.cs</DependentUpon>
@@ -494,6 +467,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contabilidad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factura.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\articulos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listaCompra.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

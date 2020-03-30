@@ -30,11 +30,8 @@ C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturac
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Productos.FormMantUnidades.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Productos.FormMantProductos.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormListaUsuarios.resources
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantRolesUsuario.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantRoles.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantUsuarios.resources
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantFuncionesRolesPermisos.resources
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantTiposPermisos.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantFuncionesRoles.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\LOGICA.dll
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\DATOS.dll

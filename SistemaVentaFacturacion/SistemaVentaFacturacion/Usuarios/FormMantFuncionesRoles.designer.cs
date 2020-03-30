@@ -38,36 +38,37 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.BtnCerrar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtFuncion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.gbFunciones = new System.Windows.Forms.GroupBox();
+            this.btnCancelarAccionFuncion = new System.Windows.Forms.Button();
+            this.txtBuscarFuncion = new System.Windows.Forms.TextBox();
+            this.btnAsignarRolAc = new System.Windows.Forms.Button();
             this.GridFunciones = new System.Windows.Forms.DataGridView();
+            this.Editar_Funcion = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar_Funcion = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.BtnCerrar = new System.Windows.Forms.Button();
-            this.btnAsignarRolAc = new System.Windows.Forms.Button();
-            this.txtBuscarFuncion = new System.Windows.Forms.TextBox();
             this.gbAsignarRol = new System.Windows.Forms.GroupBox();
+            this.lblFuncionActual = new System.Windows.Forms.Label();
+            this.cbRoles = new System.Windows.Forms.ComboBox();
             this.txtBuscarFuncionRol = new System.Windows.Forms.TextBox();
             this.btnAsignarPermisoAc = new System.Windows.Forms.Button();
             this.GridRolFuncion = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnAsignarRol = new System.Windows.Forms.Button();
-            this.cbRoles = new System.Windows.Forms.ComboBox();
             this.gbAsignarPermisos = new System.Windows.Forms.GroupBox();
+            this.chkbAccion = new System.Windows.Forms.CheckBox();
+            this.lblFunRol = new System.Windows.Forms.Label();
+            this.cbPermisos = new System.Windows.Forms.ComboBox();
+            this.btnAsignarPermiso = new System.Windows.Forms.Button();
             this.txtBuscarPermisoRol = new System.Windows.Forms.TextBox();
             this.GridPermiso = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cbFuncionRol = new System.Windows.Forms.ComboBox();
-            this.btnAsignarPermiso = new System.Windows.Forms.Button();
-            this.btnCancelarAccionFuncion = new System.Windows.Forms.Button();
-            this.editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Editar_Funcion_Rol = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar_Permiso_Asignado = new System.Windows.Forms.DataGridViewImageColumn();
             this.BarraTitulo.SuspendLayout();
             this.gbFunciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridFunciones)).BeginInit();
@@ -84,12 +85,28 @@
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1309, 38);
+            this.BarraTitulo.Size = new System.Drawing.Size(1366, 38);
             this.BarraTitulo.TabIndex = 2;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.AccessibleName = "Cerrar";
+            this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrar.FlatAppearance.BorderSize = 0;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrar.Image = global::SistemaVentaFacturacion.Properties.Resources.Close;
+            this.BtnCerrar.Location = new System.Drawing.Point(1328, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(38, 38);
+            this.BtnCerrar.TabIndex = 4;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
             // btnConfirmar
             // 
+            this.btnConfirmar.AccessibleName = "Insertar";
             this.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -147,6 +164,7 @@
             // 
             // gbFunciones
             // 
+            this.gbFunciones.AccessibleName = "Formulario Funciones";
             this.gbFunciones.Controls.Add(this.btnCancelarAccionFuncion);
             this.gbFunciones.Controls.Add(this.txtBuscarFuncion);
             this.gbFunciones.Controls.Add(this.btnAsignarRolAc);
@@ -159,10 +177,56 @@
             this.gbFunciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFunciones.Location = new System.Drawing.Point(12, 44);
             this.gbFunciones.Name = "gbFunciones";
-            this.gbFunciones.Size = new System.Drawing.Size(673, 442);
+            this.gbFunciones.Size = new System.Drawing.Size(656, 442);
             this.gbFunciones.TabIndex = 21;
             this.gbFunciones.TabStop = false;
-            this.gbFunciones.Text = "Funciones";
+            this.gbFunciones.Text = "1 Funciones";
+            // 
+            // btnCancelarAccionFuncion
+            // 
+            this.btnCancelarAccionFuncion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnCancelarAccionFuncion.FlatAppearance.BorderSize = 0;
+            this.btnCancelarAccionFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarAccionFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAccionFuncion.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarAccionFuncion.Location = new System.Drawing.Point(317, 109);
+            this.btnCancelarAccionFuncion.Name = "btnCancelarAccionFuncion";
+            this.btnCancelarAccionFuncion.Size = new System.Drawing.Size(100, 35);
+            this.btnCancelarAccionFuncion.TabIndex = 24;
+            this.btnCancelarAccionFuncion.Text = "Cancelar";
+            this.btnCancelarAccionFuncion.UseVisualStyleBackColor = false;
+            this.btnCancelarAccionFuncion.Click += new System.EventHandler(this.btnCancelarAccionFuncion_Click);
+            // 
+            // txtBuscarFuncion
+            // 
+            this.txtBuscarFuncion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtBuscarFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarFuncion.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.txtBuscarFuncion.Location = new System.Drawing.Point(6, 175);
+            this.txtBuscarFuncion.Multiline = true;
+            this.txtBuscarFuncion.Name = "txtBuscarFuncion";
+            this.txtBuscarFuncion.Size = new System.Drawing.Size(411, 38);
+            this.txtBuscarFuncion.TabIndex = 23;
+            this.txtBuscarFuncion.Text = "Buscar Funcion";
+            this.txtBuscarFuncion.Enter += new System.EventHandler(this.txtBuscarFuncion_Enter);
+            this.txtBuscarFuncion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarFuncion_KeyPress);
+            this.txtBuscarFuncion.Leave += new System.EventHandler(this.txtBuscarFuncion_Leave);
+            // 
+            // btnAsignarRolAc
+            // 
+            this.btnAsignarRolAc.AccessibleName = "Visualizar";
+            this.btnAsignarRolAc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnAsignarRolAc.FlatAppearance.BorderSize = 0;
+            this.btnAsignarRolAc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarRolAc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarRolAc.ForeColor = System.Drawing.Color.White;
+            this.btnAsignarRolAc.Location = new System.Drawing.Point(550, 219);
+            this.btnAsignarRolAc.Name = "btnAsignarRolAc";
+            this.btnAsignarRolAc.Size = new System.Drawing.Size(100, 35);
+            this.btnAsignarRolAc.TabIndex = 22;
+            this.btnAsignarRolAc.Text = "Asignar Rol";
+            this.btnAsignarRolAc.UseVisualStyleBackColor = false;
+            this.btnAsignarRolAc.Click += new System.EventHandler(this.btnAsignarRolAc_Click);
             // 
             // GridFunciones
             // 
@@ -182,8 +246,8 @@
             this.GridFunciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.GridFunciones.ColumnHeadersHeight = 30;
             this.GridFunciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.editar,
-            this.eliminar});
+            this.Editar_Funcion,
+            this.Eliminar_Funcion});
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,6 +273,24 @@
             this.GridFunciones.TabIndex = 21;
             this.GridFunciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridFunciones_CellClick);
             // 
+            // Editar_Funcion
+            // 
+            this.Editar_Funcion.FillWeight = 15F;
+            this.Editar_Funcion.HeaderText = "";
+            this.Editar_Funcion.Image = global::SistemaVentaFacturacion.Properties.Resources.editar;
+            this.Editar_Funcion.MinimumWidth = 10;
+            this.Editar_Funcion.Name = "Editar_Funcion";
+            this.Editar_Funcion.ReadOnly = true;
+            // 
+            // Eliminar_Funcion
+            // 
+            this.Eliminar_Funcion.FillWeight = 15F;
+            this.Eliminar_Funcion.HeaderText = "";
+            this.Eliminar_Funcion.Image = global::SistemaVentaFacturacion.Properties.Resources.basura;
+            this.Eliminar_Funcion.MinimumWidth = 10;
+            this.Eliminar_Funcion.Name = "Eliminar_Funcion";
+            this.Eliminar_Funcion.ReadOnly = true;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -223,52 +305,10 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 250;
             // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCerrar.FlatAppearance.BorderSize = 0;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Image = global::SistemaVentaFacturacion.Properties.Resources.Close;
-            this.BtnCerrar.Location = new System.Drawing.Point(1271, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(38, 38);
-            this.BtnCerrar.TabIndex = 4;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // btnAsignarRolAc
-            // 
-            this.btnAsignarRolAc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnAsignarRolAc.FlatAppearance.BorderSize = 0;
-            this.btnAsignarRolAc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsignarRolAc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarRolAc.ForeColor = System.Drawing.Color.White;
-            this.btnAsignarRolAc.Location = new System.Drawing.Point(549, 219);
-            this.btnAsignarRolAc.Name = "btnAsignarRolAc";
-            this.btnAsignarRolAc.Size = new System.Drawing.Size(100, 35);
-            this.btnAsignarRolAc.TabIndex = 22;
-            this.btnAsignarRolAc.Text = "Asignar Rol";
-            this.btnAsignarRolAc.UseVisualStyleBackColor = false;
-            this.btnAsignarRolAc.Click += new System.EventHandler(this.btnAsignarRolAc_Click);
-            // 
-            // txtBuscarFuncion
-            // 
-            this.txtBuscarFuncion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtBuscarFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarFuncion.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtBuscarFuncion.Location = new System.Drawing.Point(6, 175);
-            this.txtBuscarFuncion.Multiline = true;
-            this.txtBuscarFuncion.Name = "txtBuscarFuncion";
-            this.txtBuscarFuncion.Size = new System.Drawing.Size(411, 38);
-            this.txtBuscarFuncion.TabIndex = 23;
-            this.txtBuscarFuncion.Text = "Buscar Funcion";
-            this.txtBuscarFuncion.Enter += new System.EventHandler(this.txtBuscarFuncion_Enter);
-            this.txtBuscarFuncion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarFuncion_KeyPress);
-            this.txtBuscarFuncion.Leave += new System.EventHandler(this.txtBuscarFuncion_Leave);
-            // 
             // gbAsignarRol
             // 
+            this.gbAsignarRol.AccessibleName = "Formulario Roles Funcion";
+            this.gbAsignarRol.Controls.Add(this.lblFuncionActual);
             this.gbAsignarRol.Controls.Add(this.cbRoles);
             this.gbAsignarRol.Controls.Add(this.txtBuscarFuncionRol);
             this.gbAsignarRol.Controls.Add(this.btnAsignarPermisoAc);
@@ -276,12 +316,40 @@
             this.gbAsignarRol.Controls.Add(this.btnAsignarRol);
             this.gbAsignarRol.Enabled = false;
             this.gbAsignarRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbAsignarRol.Location = new System.Drawing.Point(691, 44);
+            this.gbAsignarRol.Location = new System.Drawing.Point(674, 44);
             this.gbAsignarRol.Name = "gbAsignarRol";
-            this.gbAsignarRol.Size = new System.Drawing.Size(606, 442);
+            this.gbAsignarRol.Size = new System.Drawing.Size(680, 442);
             this.gbAsignarRol.TabIndex = 24;
             this.gbAsignarRol.TabStop = false;
-            this.gbAsignarRol.Text = "Asignar Rol";
+            this.gbAsignarRol.Text = "2 Asignar Rol";
+            // 
+            // lblFuncionActual
+            // 
+            this.lblFuncionActual.AutoSize = true;
+            this.lblFuncionActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFuncionActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFuncionActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblFuncionActual.Location = new System.Drawing.Point(6, 51);
+            this.lblFuncionActual.Name = "lblFuncionActual";
+            this.lblFuncionActual.Size = new System.Drawing.Size(168, 24);
+            this.lblFuncionActual.TabIndex = 25;
+            this.lblFuncionActual.Text = "Nombre Funcion";
+            this.lblFuncionActual.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cbRoles
+            // 
+            this.cbRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.cbRoles.DropDownHeight = 100;
+            this.cbRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRoles.ForeColor = System.Drawing.SystemColors.Window;
+            this.cbRoles.FormattingEnabled = true;
+            this.cbRoles.IntegralHeight = false;
+            this.cbRoles.ItemHeight = 24;
+            this.cbRoles.Location = new System.Drawing.Point(6, 109);
+            this.cbRoles.Name = "cbRoles";
+            this.cbRoles.Size = new System.Drawing.Size(281, 32);
+            this.cbRoles.TabIndex = 24;
             // 
             // txtBuscarFuncionRol
             // 
@@ -294,20 +362,25 @@
             this.txtBuscarFuncionRol.Size = new System.Drawing.Size(411, 38);
             this.txtBuscarFuncionRol.TabIndex = 23;
             this.txtBuscarFuncionRol.Text = "Buscar rol asignado a funcion";
+            this.txtBuscarFuncionRol.Enter += new System.EventHandler(this.txtBuscarFuncionRol_Enter);
+            this.txtBuscarFuncionRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarFuncionRol_KeyPress);
+            this.txtBuscarFuncionRol.Leave += new System.EventHandler(this.txtBuscarFuncionRol_Leave);
             // 
             // btnAsignarPermisoAc
             // 
+            this.btnAsignarPermisoAc.AccessibleName = "Visualizar";
             this.btnAsignarPermisoAc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnAsignarPermisoAc.FlatAppearance.BorderSize = 0;
             this.btnAsignarPermisoAc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignarPermisoAc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsignarPermisoAc.ForeColor = System.Drawing.Color.White;
-            this.btnAsignarPermisoAc.Location = new System.Drawing.Point(489, 213);
+            this.btnAsignarPermisoAc.Location = new System.Drawing.Point(563, 213);
             this.btnAsignarPermisoAc.Name = "btnAsignarPermisoAc";
             this.btnAsignarPermisoAc.Size = new System.Drawing.Size(111, 35);
             this.btnAsignarPermisoAc.TabIndex = 22;
             this.btnAsignarPermisoAc.Text = "Asignar Permisos";
             this.btnAsignarPermisoAc.UseVisualStyleBackColor = false;
+            this.btnAsignarPermisoAc.Click += new System.EventHandler(this.btnAsignarPermisoAc_Click);
             // 
             // GridRolFuncion
             // 
@@ -327,8 +400,7 @@
             this.GridRolFuncion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.GridRolFuncion.ColumnHeadersHeight = 30;
             this.GridRolFuncion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn3,
-            this.dataGridViewImageColumn4});
+            this.Editar_Funcion_Rol});
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -350,53 +422,33 @@
             dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridRolFuncion.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.GridRolFuncion.Size = new System.Drawing.Size(477, 223);
+            this.GridRolFuncion.Size = new System.Drawing.Size(551, 223);
             this.GridRolFuncion.TabIndex = 21;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.HeaderText = "";
-            this.dataGridViewImageColumn3.Image = global::SistemaVentaFacturacion.Properties.Resources.editar;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.HeaderText = "";
-            this.dataGridViewImageColumn4.Image = global::SistemaVentaFacturacion.Properties.Resources.basura;
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.GridRolFuncion.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridRolFuncion_CellClick);
             // 
             // btnAsignarRol
             // 
+            this.btnAsignarRol.AccessibleDescription = "Asignar rol a una funcion";
+            this.btnAsignarRol.AccessibleName = "Insertar";
             this.btnAsignarRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnAsignarRol.FlatAppearance.BorderSize = 0;
             this.btnAsignarRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsignarRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsignarRol.ForeColor = System.Drawing.Color.White;
-            this.btnAsignarRol.Location = new System.Drawing.Point(293, 80);
+            this.btnAsignarRol.Location = new System.Drawing.Point(293, 109);
             this.btnAsignarRol.Name = "btnAsignarRol";
             this.btnAsignarRol.Size = new System.Drawing.Size(100, 32);
             this.btnAsignarRol.TabIndex = 11;
             this.btnAsignarRol.Text = "Asignar";
             this.btnAsignarRol.UseVisualStyleBackColor = false;
-            // 
-            // cbRoles
-            // 
-            this.cbRoles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.cbRoles.DropDownHeight = 100;
-            this.cbRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbRoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbRoles.ForeColor = System.Drawing.SystemColors.Window;
-            this.cbRoles.FormattingEnabled = true;
-            this.cbRoles.IntegralHeight = false;
-            this.cbRoles.ItemHeight = 24;
-            this.cbRoles.Location = new System.Drawing.Point(6, 80);
-            this.cbRoles.Name = "cbRoles";
-            this.cbRoles.Size = new System.Drawing.Size(281, 32);
-            this.cbRoles.TabIndex = 24;
+            this.btnAsignarRol.Click += new System.EventHandler(this.btnAsignarRol_Click);
             // 
             // gbAsignarPermisos
             // 
-            this.gbAsignarPermisos.Controls.Add(this.cbFuncionRol);
+            this.gbAsignarPermisos.AccessibleName = "Formulario Permisos Funcion Rol";
+            this.gbAsignarPermisos.Controls.Add(this.chkbAccion);
+            this.gbAsignarPermisos.Controls.Add(this.lblFunRol);
+            this.gbAsignarPermisos.Controls.Add(this.cbPermisos);
             this.gbAsignarPermisos.Controls.Add(this.btnAsignarPermiso);
             this.gbAsignarPermisos.Controls.Add(this.txtBuscarPermisoRol);
             this.gbAsignarPermisos.Controls.Add(this.GridPermiso);
@@ -404,22 +456,82 @@
             this.gbAsignarPermisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbAsignarPermisos.Location = new System.Drawing.Point(18, 492);
             this.gbAsignarPermisos.Name = "gbAsignarPermisos";
-            this.gbAsignarPermisos.Size = new System.Drawing.Size(673, 360);
+            this.gbAsignarPermisos.Size = new System.Drawing.Size(650, 360);
             this.gbAsignarPermisos.TabIndex = 24;
             this.gbAsignarPermisos.TabStop = false;
-            this.gbAsignarPermisos.Text = "Permisos";
+            this.gbAsignarPermisos.Text = "3 Permisos";
+            // 
+            // chkbAccion
+            // 
+            this.chkbAccion.AutoSize = true;
+            this.chkbAccion.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkbAccion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chkbAccion.Location = new System.Drawing.Point(293, 74);
+            this.chkbAccion.Name = "chkbAccion";
+            this.chkbAccion.Size = new System.Drawing.Size(222, 24);
+            this.chkbAccion.TabIndex = 28;
+            this.chkbAccion.Text = "Permitir/Denegar Accion";
+            this.chkbAccion.UseVisualStyleBackColor = true;
+            // 
+            // lblFunRol
+            // 
+            this.lblFunRol.AutoSize = true;
+            this.lblFunRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFunRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFunRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblFunRol.Location = new System.Drawing.Point(6, 33);
+            this.lblFunRol.Name = "lblFunRol";
+            this.lblFunRol.Size = new System.Drawing.Size(221, 24);
+            this.lblFunRol.TabIndex = 27;
+            this.lblFunRol.Text = "Nombre Rol y Funcion";
+            this.lblFunRol.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cbPermisos
+            // 
+            this.cbPermisos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.cbPermisos.DropDownHeight = 100;
+            this.cbPermisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPermisos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPermisos.ForeColor = System.Drawing.SystemColors.Window;
+            this.cbPermisos.FormattingEnabled = true;
+            this.cbPermisos.IntegralHeight = false;
+            this.cbPermisos.ItemHeight = 24;
+            this.cbPermisos.Location = new System.Drawing.Point(6, 69);
+            this.cbPermisos.Name = "cbPermisos";
+            this.cbPermisos.Size = new System.Drawing.Size(281, 32);
+            this.cbPermisos.TabIndex = 26;
+            // 
+            // btnAsignarPermiso
+            // 
+            this.btnAsignarPermiso.AccessibleDescription = "Asignar permisos a una funcion con un rol";
+            this.btnAsignarPermiso.AccessibleName = "Insertar";
+            this.btnAsignarPermiso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnAsignarPermiso.FlatAppearance.BorderSize = 0;
+            this.btnAsignarPermiso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarPermiso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarPermiso.ForeColor = System.Drawing.Color.White;
+            this.btnAsignarPermiso.Location = new System.Drawing.Point(521, 69);
+            this.btnAsignarPermiso.Name = "btnAsignarPermiso";
+            this.btnAsignarPermiso.Size = new System.Drawing.Size(100, 32);
+            this.btnAsignarPermiso.TabIndex = 25;
+            this.btnAsignarPermiso.Text = "Asignar";
+            this.btnAsignarPermiso.UseVisualStyleBackColor = false;
+            this.btnAsignarPermiso.Click += new System.EventHandler(this.btnAsignarPermiso_Click);
             // 
             // txtBuscarPermisoRol
             // 
             this.txtBuscarPermisoRol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtBuscarPermisoRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarPermisoRol.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtBuscarPermisoRol.Location = new System.Drawing.Point(6, 125);
+            this.txtBuscarPermisoRol.Location = new System.Drawing.Point(3, 123);
             this.txtBuscarPermisoRol.Multiline = true;
             this.txtBuscarPermisoRol.Name = "txtBuscarPermisoRol";
             this.txtBuscarPermisoRol.Size = new System.Drawing.Size(411, 38);
             this.txtBuscarPermisoRol.TabIndex = 23;
             this.txtBuscarPermisoRol.Text = "Buscar permiso";
+            this.txtBuscarPermisoRol.Enter += new System.EventHandler(this.txtBuscarPermisoRol_Enter);
+            this.txtBuscarPermisoRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarPermisoRol_KeyPress);
+            this.txtBuscarPermisoRol.Leave += new System.EventHandler(this.txtBuscarPermisoRol_Leave);
             // 
             // GridPermiso
             // 
@@ -439,8 +551,7 @@
             this.GridPermiso.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.GridPermiso.ColumnHeadersHeight = 30;
             this.GridPermiso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn5,
-            this.dataGridViewImageColumn6});
+            this.Eliminar_Permiso_Asignado});
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -463,86 +574,31 @@
             dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridPermiso.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
-            this.GridPermiso.Size = new System.Drawing.Size(667, 190);
+            this.GridPermiso.Size = new System.Drawing.Size(644, 190);
             this.GridPermiso.TabIndex = 21;
+            this.GridPermiso.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridPermiso_CellClick);
             // 
-            // dataGridViewImageColumn5
+            // Editar_Funcion_Rol
             // 
-            this.dataGridViewImageColumn5.HeaderText = "";
-            this.dataGridViewImageColumn5.Image = global::SistemaVentaFacturacion.Properties.Resources.editar;
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.Editar_Funcion_Rol.FillWeight = 20F;
+            this.Editar_Funcion_Rol.HeaderText = "";
+            this.Editar_Funcion_Rol.Image = global::SistemaVentaFacturacion.Properties.Resources.basura;
+            this.Editar_Funcion_Rol.MinimumWidth = 15;
+            this.Editar_Funcion_Rol.Name = "Editar_Funcion_Rol";
+            this.Editar_Funcion_Rol.ReadOnly = true;
             // 
-            // dataGridViewImageColumn6
+            // Eliminar_Permiso_Asignado
             // 
-            this.dataGridViewImageColumn6.HeaderText = "";
-            this.dataGridViewImageColumn6.Image = global::SistemaVentaFacturacion.Properties.Resources.basura;
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            // 
-            // cbFuncionRol
-            // 
-            this.cbFuncionRol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.cbFuncionRol.DropDownHeight = 100;
-            this.cbFuncionRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbFuncionRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbFuncionRol.ForeColor = System.Drawing.SystemColors.Window;
-            this.cbFuncionRol.FormattingEnabled = true;
-            this.cbFuncionRol.IntegralHeight = false;
-            this.cbFuncionRol.ItemHeight = 24;
-            this.cbFuncionRol.Location = new System.Drawing.Point(6, 69);
-            this.cbFuncionRol.Name = "cbFuncionRol";
-            this.cbFuncionRol.Size = new System.Drawing.Size(281, 32);
-            this.cbFuncionRol.TabIndex = 26;
-            // 
-            // btnAsignarPermiso
-            // 
-            this.btnAsignarPermiso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnAsignarPermiso.FlatAppearance.BorderSize = 0;
-            this.btnAsignarPermiso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAsignarPermiso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarPermiso.ForeColor = System.Drawing.Color.White;
-            this.btnAsignarPermiso.Location = new System.Drawing.Point(293, 69);
-            this.btnAsignarPermiso.Name = "btnAsignarPermiso";
-            this.btnAsignarPermiso.Size = new System.Drawing.Size(100, 32);
-            this.btnAsignarPermiso.TabIndex = 25;
-            this.btnAsignarPermiso.Text = "Asignar";
-            this.btnAsignarPermiso.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelarAccionFuncion
-            // 
-            this.btnCancelarAccionFuncion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnCancelarAccionFuncion.FlatAppearance.BorderSize = 0;
-            this.btnCancelarAccionFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarAccionFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarAccionFuncion.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarAccionFuncion.Location = new System.Drawing.Point(317, 109);
-            this.btnCancelarAccionFuncion.Name = "btnCancelarAccionFuncion";
-            this.btnCancelarAccionFuncion.Size = new System.Drawing.Size(100, 35);
-            this.btnCancelarAccionFuncion.TabIndex = 24;
-            this.btnCancelarAccionFuncion.Text = "Cancelar";
-            this.btnCancelarAccionFuncion.UseVisualStyleBackColor = false;
-            this.btnCancelarAccionFuncion.Click += new System.EventHandler(this.btnCancelarAccionFuncion_Click);
-            // 
-            // editar
-            // 
-            this.editar.FillWeight = 15F;
-            this.editar.HeaderText = "";
-            this.editar.Image = global::SistemaVentaFacturacion.Properties.Resources.editar;
-            this.editar.MinimumWidth = 10;
-            this.editar.Name = "editar";
-            // 
-            // eliminar
-            // 
-            this.eliminar.FillWeight = 15F;
-            this.eliminar.HeaderText = "";
-            this.eliminar.Image = global::SistemaVentaFacturacion.Properties.Resources.basura;
-            this.eliminar.MinimumWidth = 10;
-            this.eliminar.Name = "eliminar";
+            this.Eliminar_Permiso_Asignado.HeaderText = "";
+            this.Eliminar_Permiso_Asignado.Image = global::SistemaVentaFacturacion.Properties.Resources.basura;
+            this.Eliminar_Permiso_Asignado.Name = "Eliminar_Permiso_Asignado";
+            this.Eliminar_Permiso_Asignado.ReadOnly = true;
             // 
             // FormMantFuncionesRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1309, 864);
+            this.ClientSize = new System.Drawing.Size(1366, 951);
             this.Controls.Add(this.gbAsignarPermisos);
             this.Controls.Add(this.gbAsignarRol);
             this.Controls.Add(this.gbFunciones);
@@ -585,19 +641,20 @@
         private System.Windows.Forms.TextBox txtBuscarFuncionRol;
         private System.Windows.Forms.Button btnAsignarPermisoAc;
         private System.Windows.Forms.DataGridView GridRolFuncion;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
         private System.Windows.Forms.Button btnAsignarRol;
         private System.Windows.Forms.ComboBox cbRoles;
         private System.Windows.Forms.GroupBox gbAsignarPermisos;
-        private System.Windows.Forms.ComboBox cbFuncionRol;
+        private System.Windows.Forms.ComboBox cbPermisos;
         private System.Windows.Forms.Button btnAsignarPermiso;
         private System.Windows.Forms.TextBox txtBuscarPermisoRol;
         private System.Windows.Forms.DataGridView GridPermiso;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
         private System.Windows.Forms.Button btnCancelarAccionFuncion;
-        private System.Windows.Forms.DataGridViewImageColumn editar;
-        private System.Windows.Forms.DataGridViewImageColumn eliminar;
+        private System.Windows.Forms.Label lblFuncionActual;
+        private System.Windows.Forms.Label lblFunRol;
+        private System.Windows.Forms.CheckBox chkbAccion;
+        private System.Windows.Forms.DataGridViewImageColumn Editar_Funcion;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar_Funcion;
+        private System.Windows.Forms.DataGridViewImageColumn Editar_Funcion_Rol;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar_Permiso_Asignado;
     }
 }

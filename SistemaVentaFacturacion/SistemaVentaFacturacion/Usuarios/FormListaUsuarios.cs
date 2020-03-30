@@ -14,6 +14,7 @@ namespace SistemaVentaFacturacion.Usuarios
 {
     public partial class FormListaUsuarios : Form
     {
+
         public bool busqueda = false;
         public FormListaUsuarios()
         {
@@ -25,20 +26,6 @@ namespace SistemaVentaFacturacion.Usuarios
         {
             this.Close();
         }
-
-        private void FormListaClientes_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                GridUsuarios.DataSource = scriptsUsuarios.getGrid();
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"ERROR: \n {ex.Message.ToString()}");
-            }
-        }
-        
 
         private void BtnCerrar_Click_1(object sender, EventArgs e)
         {
@@ -140,7 +127,7 @@ namespace SistemaVentaFacturacion.Usuarios
                 {
                     fila = e.RowIndex;
                     columna = e.ColumnIndex;
-                    if (columna == 0)
+                    if (columna == 0 && GridUsuarios.CurrentRow.Cells[0].ReadOnly == false)
                     {
                         FormListaRoles frm = new FormListaRoles();
                         frm.IsInsert = true;
@@ -148,8 +135,39 @@ namespace SistemaVentaFacturacion.Usuarios
                         frm.userNick = GridUsuarios.CurrentRow.Cells[2].Value.ToString();
                         frm.FormClosed += new FormClosedEventHandler(Form3_Closed);
                         frm.ShowDialog();
-                    }
                 }
+                if(columna == 0 && GridUsuarios.CurrentRow.Cells[0].ReadOnly == true)
+                {
+                    MessageBox.Show("Accion no permitida");
+                }
+                }
+        }
+
+        private void FormListaUsuarios_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                GridUsuarios.DataSource = scriptsUsuarios.getGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR: \n {ex.Message.ToString()}");
+            }
+
+            foreach (Control item in this.Controls)
+            {
+                if(item is Button)
+                {
+                    if (!item.Name.Equals("BtnCerrar"))
+                    {
+                        item.Enabled = false;
+                    }
+
+                }
+            }
+
+            validaciones.seguridad_opcionListaUsuario(this.Controls, this.AccessibleName, GridUsuarios);
+            
         }
     }
 }

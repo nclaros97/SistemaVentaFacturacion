@@ -49,31 +49,31 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PvB/ounwOPc56bYMs1cX/hZIRsR5RVWDxbsdvEH6WPs=</dsig:DigestValue>
+        <dsig:DigestValue>GwJx/EZpu0vdPEnftOdFkuEoQ7Xd6txzhvIC75RlKu4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LOGICA.dll" size="13824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LOGICA.dll" size="28160">
       <assemblyIdentity name="LOGICA" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>53oWf5mEq6XbwTQkdkrLx87cwLwFTuEBQBu7Umr0cIY=</dsig:DigestValue>
+        <dsig:DigestValue>Dg4IC1ASNPQLScCwoNOG/VDeAl7kC6oQFdZTCvlIvdM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SistemaVentaFacturacion.exe" size="1013760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SistemaVentaFacturacion.exe" size="1024512">
       <assemblyIdentity name="SistemaVentaFacturacion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IcWIEsh/vKkegD45FmQm/cCXqTsc6GUztcp9J/ARbLo=</dsig:DigestValue>
+        <dsig:DigestValue>msCUhyyb5lebINDYdH/uU6AeuKh30funJvAlK89RYeE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

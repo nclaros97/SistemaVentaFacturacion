@@ -1,4 +1,5 @@
-﻿using SistemaVentaFacturacion.Clientes;
+﻿using LOGICA.LUsuarios;
+using SistemaVentaFacturacion.Clientes;
 using SistemaVentaFacturacion.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace SistemaVentaFacturacion
         //Constructor
         public bool cerrar;
         public bool isLogin;
+        public List<funciones> funciones = new List<funciones>();
+        public List<permisos> permisos = new List<permisos>();
+        public string nombreCompleto;
+        public string correo;
+        public string cargos;
         public FormMenuPrincipal()
         {
             InitializeComponent();
@@ -199,16 +205,17 @@ namespace SistemaVentaFacturacion
         public bool sesion=false;
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
-                if (sesion)
-                {
-
-                    MostrarFormLogo();
-                }
-                else
-                {
-                    Login();
-                }
-            
+            //seguridad
+            validaciones.seguridad_deshabilitarMenu(panelOpciones.Controls);
+            if (sesion){
+            panelOpciones.Enabled = true;
+            MostrarFormLogo();
+            }
+            else
+            {
+                panelOpciones.Enabled = false;
+                Login();
+            }
         }
         
         private void Login()
@@ -242,12 +249,32 @@ namespace SistemaVentaFacturacion
 
             if (sesion)
             {
+
+                panelOpciones.Enabled = true;
+                lblNombreCompeto.Text = nombreCompleto;
+                lblCorreo.Text = correo;
+                lblCargo.Text = cargos;
                 MostrarFormLogo();
+
+                //FILTROS DE SESION
+                //seguridad habilitar menu segun las funciones
+                //cargar las listas en la clase de validaciones para poder acceder a las funciones y permisos del usuario logeado
+                validaciones.FuncionesG = funciones;
+                validaciones.PermisosG = permisos;
+                validaciones.seguridad_habilitarMenu(panelOpciones.Controls);
+                
+                
+               //FIN FILTROS DE SESION
+
             }
             else
             {
                 if (cerrar == false)
                 {
+                    panelOpciones.Enabled = false;
+                    lblNombreCompeto.Text = "Nombre Completo";
+                    lblCorreo.Text = "Correo";
+                    lblCargo.Text = "Cargos";
                     Login();
                 }
             }
@@ -268,6 +295,15 @@ namespace SistemaVentaFacturacion
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
+            panelOpciones.Enabled = false;
+            foreach (Control control in panelOpciones.Controls)
+            {
+                if (control is Button)
+                {
+                    control.Enabled = false;
+                    control.Visible = false;
+                }
+            }
             Login();
         }
 

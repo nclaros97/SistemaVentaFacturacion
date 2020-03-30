@@ -53,6 +53,26 @@ namespace LOGICA.LUsuarios
             return data;
         }
 
+        public static DataTable getGridRolFuncion(int idFun)
+        {
+            conexion_db.getConnection();
+            DataTable data = new DataTable();
+            try
+            {
+                SqlDataAdapter sqlDA = new SqlDataAdapter("dbo.WWUsuarios", conexion_db.conexion);
+                sqlDA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlDA.SelectCommand.Parameters.AddWithValue("@idFuncion", idFun);
+                sqlDA.SelectCommand.Parameters.AddWithValue("accion", "SELECT_GRID_FUNCIONES_ROL");
+                sqlDA.Fill(data);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR: \n {ex.Message.ToString()}");
+            }
+            return data;
+        }
+
         public static void updateFuncion(string text, int id)
         {
             SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
@@ -65,9 +85,44 @@ namespace LOGICA.LUsuarios
             MessageBox.Show($"Funcion: {text} Actualizado satisfactoriamente!");
         }
 
-        public static string getCurrentFuncionId()
+        public static void updateRol(string text, int id)
         {
-            string id = "";
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@rolDescripcion", text);
+            SqlCmd.Parameters.AddWithValue("@rolId", id);
+            SqlCmd.Parameters.AddWithValue("accion", "UPD_ROL");
+
+            SqlCmd.ExecuteNonQuery();
+            MessageBox.Show($"Rol: {text} Actualizado satisfactoriamente!");
+        }
+
+        public static void updatePermiso(string text, int id)
+        {
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@tipPermisoDescripcion", text);
+            SqlCmd.Parameters.AddWithValue("@tipPermisoId", id);
+            SqlCmd.Parameters.AddWithValue("accion", "UPD_PERMISO");
+
+            SqlCmd.ExecuteNonQuery();
+            MessageBox.Show($"Permiso: {text} Actualizado satisfactoriamente!");
+        }
+
+        public static void updateValorPermisoAsignado(int id, int val)
+        {
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@perFunId", id);
+            SqlCmd.Parameters.AddWithValue("@perFunValor", val);
+            SqlCmd.Parameters.AddWithValue("accion", "UPD_VALOR_PERMISO");
+
+            SqlCmd.ExecuteNonQuery();
+        }
+
+        public static int getCurrentFuncionId()
+        {
+            int id = 0;
 
             conexion_db.getConnection();
 
@@ -76,9 +131,9 @@ namespace LOGICA.LUsuarios
             SqlCmd.Parameters.AddWithValue("accion", "SELECT_LAST_ID_FUNCION");
             SqlCmd.Parameters.Add("@contadorFunciones", SqlDbType.Int).Direction = ParameterDirection.Output;
             SqlCmd.ExecuteNonQuery();
-            id = (System.Convert.ToInt32(SqlCmd.Parameters["@contadorFunciones"].Value.ToString())+1).ToString();
+            id = System.Convert.ToInt32(SqlCmd.Parameters["@contadorFunciones"].Value.ToString());
 
-            return id;
+            return id + 1;
         }
 
         public static void deleteFuncion(int v)
@@ -93,6 +148,62 @@ namespace LOGICA.LUsuarios
                 SqlCmd.Parameters.AddWithValue("accion", "DLT_FUNCION");
                 SqlCmd.ExecuteNonQuery();
                 MessageBox.Show($"Funcion eliminado satisfactoriamente!");
+            }
+            catch (SqlException ex)
+            {
+                StringBuilder errorMessages = new StringBuilder();
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Mensaje: " + ex.Errors[i].Message + "\n" +
+                        "Linea: " + ex.Errors[i].LineNumber + "\n" +
+                        "Fuente: " + ex.Errors[i].Source + "\n" +
+                        "Procedimiento: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString());
+            }
+        }
+
+        public static void deleteRol(int v)
+        {
+            conexion_db.getConnection();
+
+            try
+            {
+                SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.AddWithValue("@rolId", v);
+                SqlCmd.Parameters.AddWithValue("accion", "DLT_ROL");
+                SqlCmd.ExecuteNonQuery();
+                MessageBox.Show($"Rol eliminado satisfactoriamente!");
+            }
+            catch (SqlException ex)
+            {
+                StringBuilder errorMessages = new StringBuilder();
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Mensaje: " + ex.Errors[i].Message + "\n" +
+                        "Linea: " + ex.Errors[i].LineNumber + "\n" +
+                        "Fuente: " + ex.Errors[i].Source + "\n" +
+                        "Procedimiento: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString());
+            }
+        }
+
+        public static void deletePermiso(int v)
+        {
+            conexion_db.getConnection();
+
+            try
+            {
+                SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.AddWithValue("@tipPermisoId", v);
+                SqlCmd.Parameters.AddWithValue("accion", "DLT_PERMISO");
+                SqlCmd.ExecuteNonQuery();
+                MessageBox.Show($"Permiso eliminado satisfactoriamente!");
             }
             catch (SqlException ex)
             {
@@ -170,6 +281,17 @@ namespace LOGICA.LUsuarios
             MessageBox.Show($"Rol: {rol} Creado satisfactoriamente!");
         }
 
+        public static void insertPermiso(string permiso)
+        {
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@tipPermisoDescripcion", permiso);
+            SqlCmd.Parameters.AddWithValue("accion", "INS_PERMISO");
+
+            SqlCmd.ExecuteNonQuery();
+            MessageBox.Show($"Permiso: {permiso} Creado satisfactoriamente!");
+        }
+
         public static DataTable getGridFuncionesRoles(int rolI)
         {
             conexion_db.getConnection();
@@ -180,6 +302,47 @@ namespace LOGICA.LUsuarios
                 sqlDA.SelectCommand.CommandType = CommandType.StoredProcedure;
                 sqlDA.SelectCommand.Parameters.AddWithValue("@rolId", rolI);
                 sqlDA.SelectCommand.Parameters.AddWithValue("accion", "SELECT_GRID_FUNCIONES_USER");
+                sqlDA.Fill(data);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR: \n {ex.Message.ToString()}");
+            }
+            return data;
+        }
+
+        public static DataTable getGridPermisos(int funRolId)
+        {
+            conexion_db.getConnection();
+            DataTable data = new DataTable();
+            try
+            {
+                SqlDataAdapter sqlDA = new SqlDataAdapter("dbo.WWUsuarios", conexion_db.conexion);
+                sqlDA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlDA.SelectCommand.Parameters.AddWithValue("@idFunRol", funRolId);
+                sqlDA.SelectCommand.Parameters.AddWithValue("accion", "SELECT_GRID_FUNCIONES_ROL_PERMISOS");
+                sqlDA.Fill(data);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR: \n {ex.ToString()}");
+            }
+            return data;
+        }
+
+        public static DataTable getGridPermisosBusqueda(int funRolId, string texto)
+        {
+            conexion_db.getConnection();
+            DataTable data = new DataTable();
+            try
+            {
+                SqlDataAdapter sqlDA = new SqlDataAdapter("dbo.WWUsuarios", conexion_db.conexion);
+                sqlDA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlDA.SelectCommand.Parameters.AddWithValue("@idFunRol", funRolId);
+                sqlDA.SelectCommand.Parameters.AddWithValue("@parametro", texto);
+                sqlDA.SelectCommand.Parameters.AddWithValue("accion", "SELECT_GRID_FUNCIONES_ROL_PERMISOS_BUSQUEDA");
                 sqlDA.Fill(data);
 
             }
@@ -240,6 +403,25 @@ namespace LOGICA.LUsuarios
                 SqlDataAdapter sqlDA = new SqlDataAdapter("dbo.WWUsuarios", conexion_db.conexion);
                 sqlDA.SelectCommand.CommandType = CommandType.StoredProcedure;
                 sqlDA.SelectCommand.Parameters.AddWithValue("accion", "CB_ROLES");
+                sqlDA.Fill(data);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR: \n {ex.Message.ToString()}");
+            }
+            return data;
+        }
+
+        public static DataTable cbPermisos()
+        {
+            conexion_db.getConnection();
+            DataTable data = new DataTable();
+            try
+            {
+                SqlDataAdapter sqlDA = new SqlDataAdapter("dbo.WWUsuarios", conexion_db.conexion);
+                sqlDA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                sqlDA.SelectCommand.Parameters.AddWithValue("accion", "CB_PERMISOS");
                 sqlDA.Fill(data);
 
             }
@@ -442,6 +624,40 @@ namespace LOGICA.LUsuarios
             return cantidad;
         }
 
+        public static int verificarRoleFuncion(int idRol, int idFunc)
+        {
+            int cantidad = 0;
+
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("accion", "VERIFICAR_EXISTENCIA_FUNCION_ROL");
+            SqlCmd.Parameters.AddWithValue("@rolId", idRol);
+            SqlCmd.Parameters.AddWithValue("@idFuncion", idFunc);
+            SqlCmd.Parameters.Add("@contadorFunRol", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            cantidad = System.Convert.ToInt32(SqlCmd.Parameters["@contadorFunRol"].Value.ToString());
+            return cantidad;
+        }
+
+        public static int verificarPermisoRoleFuncion(int idFunRol, int idTipPermiso)
+        {
+            int cantidad = 0;
+
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("accion", "VERIFICAR_EXISTENCIA_PERMISO_FUNCION_ROL");
+            SqlCmd.Parameters.AddWithValue("@tipPermisoId", idTipPermiso);
+            SqlCmd.Parameters.AddWithValue("@idFunRol", idFunRol);
+            SqlCmd.Parameters.Add("@contadorPermisoFunRol", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            cantidad = System.Convert.ToInt32(SqlCmd.Parameters["@contadorPermisoFunRol"].Value.ToString());
+            return cantidad;
+        }
+
         public static bool setUserRole(int rol, int userId, string userNick)
         {
             conexion_db.getConnection();
@@ -458,5 +674,152 @@ namespace LOGICA.LUsuarios
                         
             return true;
         }
+
+        public static bool setFuncionRole(int idRol, int idFunc)
+        {
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@rolId", idRol);
+            SqlCmd.Parameters.AddWithValue("@idFuncion", idFunc);
+            SqlCmd.Parameters.AddWithValue("accion", "INS_FUNCION_ROL");
+
+            SqlCmd.ExecuteNonQuery();
+            MessageBox.Show($"Funcion asignada satisfactoriamente!");
+
+            return true;
+        }
+
+        public static bool setPermisoFuncionRole(int idPermiso, int idFunRol, string descripcionAsignacion, int valor)
+        {
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@idFunRol", idFunRol);
+            SqlCmd.Parameters.AddWithValue("@perFunDescripcion", descripcionAsignacion);
+            SqlCmd.Parameters.AddWithValue("@perFunValor", valor);
+            SqlCmd.Parameters.AddWithValue("@tipPermisoId", idPermiso);
+            SqlCmd.Parameters.AddWithValue("accion", "INS_FUNCION_ROL_PERMISO");
+
+            SqlCmd.ExecuteNonQuery();
+            MessageBox.Show($"Permiso asignado satisfactoriamente!");
+
+            return true;
+        }
+
+        public static bool deleteFunRol(int idFunRol)
+        {
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@idFunRol", idFunRol);
+            SqlCmd.Parameters.AddWithValue("accion", "DLT_FUNCION_ROL");
+            SqlCmd.ExecuteNonQuery();
+            MessageBox.Show($"Asignacion de rol a funcion eliminado satisfactoriamente!");
+            return true;
+        }
+
+        public static bool deleteFunRolPermiso(int idPerFunRol)
+        {
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@perFunId", idPerFunRol);
+            SqlCmd.Parameters.AddWithValue("accion", "DLT_FUNCION_ROL_PERMISO");
+            SqlCmd.ExecuteNonQuery();
+            MessageBox.Show($"Asignacion de permiso a la funcion eliminado satisfactoriamente!");
+            return true;
+        }
+
+        public static int getLastIdPermiso()
+        {
+            int id = 0;
+
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("accion", "SELECT_LAST_ID_PERMISO");
+            SqlCmd.Parameters.Add("@returnId", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            id = System.Convert.ToInt32(SqlCmd.Parameters["@returnId"].Value.ToString());
+            return id + 1;
+        }
+
+        public static int getLastIdRol()
+        {
+            int id = 0;
+
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("accion", "SELECT_LAST_ID_ROL");
+            SqlCmd.Parameters.Add("@returnId", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            id = System.Convert.ToInt32(SqlCmd.Parameters["@returnId"].Value.ToString());
+            return id + 1;
+        }
+
+        public static bool Login(string user, string psw)
+        {
+            try
+            {
+                string pswEncryptada = validaciones.EncriptarPsw(psw);
+                conexion_db.getConnection();
+                SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.AddWithValue("accion", "LOGIN");
+                SqlCmd.Parameters.AddWithValue("@usuNick", user);
+                SqlCmd.Parameters.AddWithValue("@email", user);
+                SqlCmd.Parameters.AddWithValue("@usuPassw", pswEncryptada);
+                SqlCmd.Parameters.Add("@var", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                SqlCmd.ExecuteNonQuery();
+                
+                if (SqlCmd.Parameters["@var"].Value.ToString().Equals("1"))
+                {
+                    return true;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show($"ERROR: \n {ex.ToString()}");
+            }
+            return false;
+        }
+
+        public static DataTable getCredencialesUsuario(string user, string psw)
+        {
+            string pswEncryptada = validaciones.EncriptarPsw(psw);
+
+            conexion_db.getConnection();
+            DataTable data = new DataTable();
+            SqlDataAdapter SqlCmd = new SqlDataAdapter("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+            SqlCmd.SelectCommand.Parameters.AddWithValue("accion", "GET_DATA_USER");
+            SqlCmd.SelectCommand.Parameters.AddWithValue("@usuNick", user);
+            SqlCmd.SelectCommand.Parameters.AddWithValue("@email", user);
+            SqlCmd.SelectCommand.Parameters.AddWithValue("@usuPassw", pswEncryptada);
+            SqlCmd.Fill(data);
+            return data;
+        }
+
+        public static DataTable getPermisosUsuario(int funRolesId)
+        {
+            conexion_db.getConnection();
+            DataTable data = new DataTable();
+            SqlDataAdapter SqlCmd = new SqlDataAdapter("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+            SqlCmd.SelectCommand.Parameters.AddWithValue("accion", "GET_PERMISOS_USER");
+            SqlCmd.SelectCommand.Parameters.AddWithValue("@idFunRol", funRolesId);
+            SqlCmd.Fill(data);
+            return data;
+        }
+
     }
 }
