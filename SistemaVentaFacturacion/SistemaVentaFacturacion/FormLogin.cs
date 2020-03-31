@@ -27,8 +27,8 @@ namespace SistemaVentaFacturacion
 
         private void FormLogo_Load(object sender, EventArgs e)
         {
-            txtUsuario.Text = "nclaros";
-            txtPass.Text = "N1lsonClaros@";
+            txtUsuario.Text = "admin";
+            txtPass.Text = "AdminTotal@2020";
             FormMenuPrincipal frm = Owner as FormMenuPrincipal;
             frm.cerrar = c;
             frm.isLogin = true;
@@ -58,19 +58,24 @@ namespace SistemaVentaFacturacion
                                 RolDescripcion = credenciales.Rows[i][3].ToString(),
                                 UserNick = credenciales.Rows[i][0].ToString()
                             });
-
-                            rolDescrip.Add($"{credenciales.Rows[i][3].ToString()} \n");
-                            DataTable data = new DataTable();
-                            data = scriptsUsuarios.getPermisosUsuario(Convert.ToInt32(credenciales.Rows[i][5].ToString()));
-                            
-                            for (int x = 0; x < data.Rows.Count; x++)
+                            if (!credenciales.Rows[i][3].ToString().Equals(""))
                             {
-                                permisos.Add(new permisos
+                                rolDescrip.Add($"{credenciales.Rows[i][3].ToString()} \n");
+                            }
+                            if (!credenciales.Rows[i][5].ToString().Equals(""))
+                            {
+                                DataTable data = new DataTable();
+                                data = scriptsUsuarios.getPermisosUsuario(Convert.ToInt32(credenciales.Rows[i][5].ToString()));
+
+                                for (int x = 0; x < data.Rows.Count; x++)
                                 {
-                                    NombreFuncion = data.Rows[x][0].ToString(),
-                                    Permiso = data.Rows[x][1].ToString(),
-                                    Nivel = Convert.ToBoolean(data.Rows[x][2].ToString())
-                                });
+                                    permisos.Add(new permisos
+                                    {
+                                        NombreFuncion = data.Rows[x][0].ToString(),
+                                        Permiso = data.Rows[x][1].ToString(),
+                                        Nivel = Convert.ToBoolean(data.Rows[x][2].ToString())
+                                    });
+                                }
                             }
 
                         }

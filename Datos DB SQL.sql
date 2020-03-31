@@ -153,12 +153,12 @@ CREATE TABLE [PartidasContable] (
      PRIMARY KEY ( [parId] ))
 
 CREATE TABLE [PartidasContableDetalle] ( 
-  [parId]          INT    NOT NULL Identity(1,1), 
-  [parConDetId]    INT    NOT NULL, 
+  [parId]          INT    NOT NULL, 
+  [parConDetId]    INT    NOT NULL Identity(1,1), 
   [ctaId]          VARCHAR(40)    NOT NULL, 
   [parConDetDebe]  SMALLMONEY    NOT NULL, 
   [parConDetHaber] SMALLMONEY    NOT NULL, 
-     PRIMARY KEY ( [parId],[parConDetId] ))
+     PRIMARY KEY ([parConDetId] ))
 CREATE NONCLUSTERED INDEX [IPartidasContableDetalle2] ON [PartidasContableDetalle] ( 
       [ctaId])
 ALTER TABLE [PartidasContableDetalle] 
@@ -170,15 +170,15 @@ CREATE TABLE [CompraProductos] (
   [comProId]         INT    NOT NULL Identity(1,1), 
   [comProFecha]      DATETIME    NOT NULL, 
   [usuId]            INT    NOT NULL, 
-  [comProMontoTotal] SMALLINT    NOT NULL, 
+  [comProMontoTotal] MONEY    NOT NULL, 
      PRIMARY KEY ( [comProId] ))
 
 CREATE TABLE [CompraProductosDetalle] ( 
   [comProId]          INT    NOT NULL Identity(1,1), 
   [detComProId]       INT    NOT NULL, 
   [proId]             INT    NOT NULL, 
-  [detComProCantidad] SMALLMONEY    NOT NULL, 
-     PRIMARY KEY ( [comProId],[detComProId] ))
+  [detComProCantidad] MONEY    NOT NULL, 
+     PRIMARY KEY ( [detComProId] ))
 CREATE NONCLUSTERED INDEX [ICOMPRAPRODUCTOSDETALLE1] ON [CompraProductosDetalle] ( 
       [proId])
 ALTER TABLE [CompraProductosDetalle] 
@@ -189,8 +189,8 @@ ALTER TABLE [CompraProductosDetalle]
 CREATE TABLE [Inventario] ( 
   [invId]             INT    NOT NULL Identity(1,1), 
   [proId]             INT    NOT NULL, 
-  [invStock]          SMALLMONEY    NOT NULL, 
-  [invCantidadMinima] SMALLMONEY    NOT NULL, 
+  [invStock]          FLOAT    NOT NULL, 
+  [invCantidadMinima] FLOAT    NOT NULL, 
   [invFechaCreacion]  DATETIME    NOT NULL, 
   [invFechaUltimaAct] DATETIME    NOT NULL, 
      PRIMARY KEY ( [invId] ))
@@ -200,9 +200,9 @@ ALTER TABLE [Inventario]
  ADD CONSTRAINT [IINVENTARIO1] FOREIGN KEY ( [proId] ) REFERENCES [Producto]([proId])
 
 CREATE TABLE [Factura] ( 
-  [facId]         SMALLINT    NOT NULL Identity(1,1), 
-  [facFecha]      SMALLINT    NOT NULL, 
-  [facMontoTotal] SMALLINT    NOT NULL, 
+  [facId]         INT    NOT NULL Identity(1,1), 
+  [facFecha]      DATETIME    NOT NULL, 
+  [facMontoTotal] MONEY    NOT NULL, 
   [cliId]         INT    NOT NULL, 
      PRIMARY KEY ( [facId] ))
 CREATE NONCLUSTERED INDEX [IFACTURA1] ON [Factura] ( 
@@ -211,11 +211,11 @@ ALTER TABLE [Factura]
  ADD CONSTRAINT [IFACTURA1] FOREIGN KEY ( [cliId] ) REFERENCES [Cliente]([cliId])
 
 CREATE TABLE [FacturaDetalle] ( 
-  [facId]          SMALLINT    NOT NULL Identity(1,1), 
-  [detFacId]       SMALLINT    NOT NULL, 
+  [facId]          INT    NOT NULL Identity(1,1), 
+  [detFacId]       INT    NOT NULL, 
   [proId]          INT    NOT NULL, 
-  [detFacCantidad] SMALLMONEY    NOT NULL, 
-     PRIMARY KEY ( [facId],[detFacId] ))
+  [detFacCantidad] INT    NOT NULL, 
+     PRIMARY KEY ([detFacId] ))
 CREATE NONCLUSTERED INDEX [IFACTURADETALLE1] ON [FacturaDetalle] ( 
       [proId])
 ALTER TABLE [FacturaDetalle] 

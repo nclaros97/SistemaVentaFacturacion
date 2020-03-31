@@ -329,7 +329,6 @@ namespace LOGICA.LUsuarios
 
         public static void seguridad_opcionListaUsuario(Control.ControlCollection controlCollection, string name, DataGridView dg)
         {
-            MessageBox.Show(name);
             try
             {
                 foreach (Control control in controlCollection)

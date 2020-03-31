@@ -22,11 +22,6 @@ namespace SistemaVentaFacturacion.Contabilidad
         {
             this.Close();
         }
-
-        private void FormListaClientes_Load(object sender, EventArgs e)
-        {
-            
-        }
         
 
         private void BtnCerrar_Click_1(object sender, EventArgs e)
@@ -92,6 +87,11 @@ namespace SistemaVentaFacturacion.Contabilidad
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             //Buscar
+        }
+
+        private void FormListaPartidas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

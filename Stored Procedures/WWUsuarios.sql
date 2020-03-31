@@ -488,10 +488,9 @@ BEGIN
 
 	 IF @accion = 'GET_DATA_USER'
 	 BEGIN
-		
 		SELECT Usuario.usuNick, Usuario.usuCorreo, RolesUsuario.rolId, Rol.rolDescripcion, Funciones.funDescripcion , FuncionesRoles.funRolesId, Usuario.usuNombres ,Usuario.usuApellidos
-		FROM Usuario INNER JOIN RolesUsuario ON Usuario.usuId = RolesUsuario.usuId INNER JOIN Rol ON RolesUsuario.rolId = Rol.rolId INNER JOIN FuncionesRoles on Rol.rolId = FuncionesRoles.rolId
-		INNER JOIN Funciones ON FuncionesRoles.funId = Funciones.funId
+		FROM Usuario LEFT JOIN RolesUsuario ON Usuario.usuId = RolesUsuario.usuId LEFT JOIN Rol ON RolesUsuario.rolId = Rol.rolId LEFT JOIN FuncionesRoles on Rol.rolId = FuncionesRoles.rolId
+		LEFT JOIN Funciones ON FuncionesRoles.funId = Funciones.funId
 		 WHERE (Usuario.usuNick = @usuNick OR Usuario.usuCorreo = @email) AND Usuario.usuPassw = @usuPassw
 	 END
 

@@ -607,6 +607,21 @@ namespace LOGICA.LUsuarios
             return id + 1;
         }
 
+        public static int getLastIdPartida()
+        {
+            int id = 0;
+
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("accion", "SELECT_LAST_ID_USER");
+            SqlCmd.Parameters.Add("@returnId", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            id = System.Convert.ToInt32(SqlCmd.Parameters["@returnId"].Value.ToString());
+            return id + 1;
+        }
+
         public static int verificarRoleUser(int userId, int rolId)
         {
             int cantidad = 0;
