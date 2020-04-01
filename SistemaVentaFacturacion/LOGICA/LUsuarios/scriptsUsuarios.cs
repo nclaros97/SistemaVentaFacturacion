@@ -470,18 +470,41 @@ namespace LOGICA.LUsuarios
                         }
                         else
                         {
-                            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
-                            SqlCmd.CommandType = CommandType.StoredProcedure;
-                            SqlCmd.Parameters.AddWithValue("usuNick", nick);
-                            SqlCmd.Parameters.AddWithValue("usuNombres", nombres);
-                            SqlCmd.Parameters.AddWithValue("usuApellidos", apellidos);
-                            SqlCmd.Parameters.AddWithValue("usuCorreo", email);
-                            SqlCmd.Parameters.AddWithValue("usuTelefono", telefono);
-                            SqlCmd.Parameters.AddWithValue("usuPassw", validaciones.EncriptarPsw(psw));
-                            SqlCmd.Parameters.AddWithValue("accion", "INS");
+                            if (!verificarUserNick(nick) && !verificarUserEmail(email) && !verificarUserTelefono(telefono) )
+                            {
+                                SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+                                SqlCmd.CommandType = CommandType.StoredProcedure;
+                                SqlCmd.Parameters.AddWithValue("usuNick", nick);
+                                SqlCmd.Parameters.AddWithValue("usuNombres", nombres);
+                                SqlCmd.Parameters.AddWithValue("usuApellidos", apellidos);
+                                SqlCmd.Parameters.AddWithValue("usuCorreo", email);
+                                SqlCmd.Parameters.AddWithValue("usuTelefono", telefono);
+                                SqlCmd.Parameters.AddWithValue("usuPassw", validaciones.EncriptarPsw(psw));
+                                SqlCmd.Parameters.AddWithValue("accion", "INS");
 
-                            SqlCmd.ExecuteNonQuery();
-                            MessageBox.Show($"Usuario: {nick} Creado satisfactoriamente!");
+                                SqlCmd.ExecuteNonQuery();
+                                MessageBox.Show($"Usuario: {nick} Creado satisfactoriamente!");
+                            }
+                            else
+                            {
+                                string errores = "";
+                                
+                                if (verificarUserNick(nick))
+                                {
+                                    errores += $"El Nick: **{nick}** ya existe en la base de datos \n";
+                                }
+                                if (verificarUserEmail(email))
+                                {
+                                    errores += $"El Email **{email}** ya existe en la base de datos \n";
+                                }
+                                if (verificarUserTelefono(telefono))
+                                {
+                                    errores += $"El Telefono **{telefono}** ya existe en la base de datos \n";
+                                }
+
+                                    MessageBox.Show($"{errores}");
+                                return false;
+                            }
                         }
                     }
                     else
@@ -503,6 +526,60 @@ namespace LOGICA.LUsuarios
             }
 
             return true;
+        }
+
+        private static bool verificarUserNick(string userNick)
+        {
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@usuNick", userNick);
+            SqlCmd.Parameters.AddWithValue("accion", "VERIFICAR_USUARIO_NICK");
+            SqlCmd.Parameters.Add("@CONTADOR", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            if (Convert.ToInt32(SqlCmd.Parameters["@CONTADOR"].Value.ToString()) >= 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool verificarUserEmail(string Email)
+        {
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("accion", "VERIFICAR_USUARIO_EMAIL");
+            SqlCmd.Parameters.AddWithValue("@usuCorreo", Email);
+            SqlCmd.Parameters.Add("@CONTADOR", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            if(System.Convert.ToInt32(SqlCmd.Parameters["@CONTADOR"].Value.ToString()) >=1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool verificarUserTelefono(string Telefono)
+        {
+            conexion_db.getConnection();
+
+            SqlCommand SqlCmd = new SqlCommand("dbo.WWUsuarios", conexion_db.conexion);
+            SqlCmd.CommandType = CommandType.StoredProcedure;
+            SqlCmd.Parameters.AddWithValue("@usuTelefono", Telefono);
+            SqlCmd.Parameters.AddWithValue("accion", "VERIFICAR_USUARIO_TELEFONO");
+            SqlCmd.Parameters.Add("@CONTADOR", SqlDbType.Int).Direction = ParameterDirection.Output;
+            SqlCmd.ExecuteNonQuery();
+            if(Convert.ToInt32(SqlCmd.Parameters["@CONTADOR"].Value.ToString()) >=1)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public static bool updateUsuario(int id,string nick, string nombres, string apellidos, string email, string telefono,

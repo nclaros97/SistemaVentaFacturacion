@@ -64,7 +64,6 @@ CREATE PROCEDURE WWFACTUACION
 	@proDescripcion varchar(60) = 'null',
 	@proValor smallmoney = 0,
 	@uniId int = 0,
-
 	@uniDescripcion varchar(100) = 'null'
 
 AS
@@ -73,7 +72,75 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-    -- Insert statements for procedure here
-	
+    --TODO UNIDADES
+
+	--FIN TODO UNIDADES
+
+
+
+	--TODO CATEGORIAS
+
+	--FIN TODO CATEGORIAS
+
+
+
+	--TODO CLASIFICACION CUENTA
+
+	--FIN TODO CLASIFICACION CUENTA
+
+
+
+	--TODO CUENTAS
+
+	--FIN TODO CUENTAS
+
+
+
+	--TODO IMPUESTOS
+
+	--FIN TODO IMPUESTOS
+
+
+
+	--TODO CLIENTE
+
+	--FIN TODO CLIENTE
+
+
+
+	--TODO COMPRA PRODUCTOS
+
+	--FIN TODO COMPRA PRODUCTOS
+
+
+
+	--TODO COMPRA PRODUCTOS DETALLE
+
+	--FIN TODO COMPRA PRODUCTOS DETALLE
+
+
+
+	--TODO FACTURAS
+
+	--FIN TODO FACTURAS
+
+
+
+	--TODO DETALLE FACTURAS
+
+	--FIN TODO DETALLE FACTURAS
+
+
+
+	--TODO INVENTARIO
+
+	--FIN TODO INVENTARIO
+
+
+
+	--TODO PRODUCTOS
+
+	--FIN TODO PRODUCTOS
+
 END
 GO

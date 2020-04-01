@@ -37,47 +37,47 @@
             this.lblCorreo = new System.Windows.Forms.Label();
             this.lblNombreCompeto = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.lblHora = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelOpciones = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
-            this.PBarraTituloR = new System.Windows.Forms.Panel();
-            this.PBarraTituloL = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
-            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnCompraProductos = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnFacturacion = new System.Windows.Forms.Button();
             this.btnPartidasContables = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnListaUsuarios = new System.Windows.Forms.Button();
             this.btnListaClientes = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.PanelBarraTitulo = new System.Windows.Forms.Panel();
+            this.PBarraTituloR = new System.Windows.Forms.Panel();
             this.btnNormal = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.PBarraTituloL = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
+            this.tmFechaHora = new System.Windows.Forms.Timer(this.components);
             this.panelContenedorPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelOpciones.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.PanelBarraTitulo.SuspendLayout();
             this.PBarraTituloR.SuspendLayout();
             this.PBarraTituloL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,6 +163,16 @@
             this.lbFecha.TabIndex = 4;
             this.lbFecha.Text = "Lunes, 30 de marzo de 2020";
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::SistemaVentaFacturacion.Properties.Resources.user;
+            this.pictureBox7.Location = new System.Drawing.Point(12, 18);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(65, 65);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 3;
+            this.pictureBox7.TabStop = false;
+            // 
             // lblHora
             // 
             this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -203,116 +213,6 @@
             this.panelOpciones.Name = "panelOpciones";
             this.panelOpciones.Size = new System.Drawing.Size(230, 421);
             this.panelOpciones.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(0, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(229, 2);
-            this.label6.TabIndex = 15;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnSalir);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 511);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(230, 46);
-            this.panel3.TabIndex = 17;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btnMenu);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(230, 90);
-            this.panel2.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(-3, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 24);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "MENU";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // PanelBarraTitulo
-            // 
-            this.PanelBarraTitulo.BackColor = System.Drawing.Color.SteelBlue;
-            this.PanelBarraTitulo.Controls.Add(this.PBarraTituloR);
-            this.PanelBarraTitulo.Controls.Add(this.PBarraTituloL);
-            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
-            this.PanelBarraTitulo.Size = new System.Drawing.Size(1100, 43);
-            this.PanelBarraTitulo.TabIndex = 1;
-            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
-            // 
-            // PBarraTituloR
-            // 
-            this.PBarraTituloR.Controls.Add(this.btnNormal);
-            this.PBarraTituloR.Controls.Add(this.btnMinimizar);
-            this.PBarraTituloR.Controls.Add(this.btnMaximizar);
-            this.PBarraTituloR.Controls.Add(this.btnCerrar);
-            this.PBarraTituloR.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PBarraTituloR.Location = new System.Drawing.Point(918, 0);
-            this.PBarraTituloR.Name = "PBarraTituloR";
-            this.PBarraTituloR.Size = new System.Drawing.Size(182, 43);
-            this.PBarraTituloR.TabIndex = 0;
-            // 
-            // PBarraTituloL
-            // 
-            this.PBarraTituloL.Controls.Add(this.pictureBox1);
-            this.PBarraTituloL.Controls.Add(this.label1);
-            this.PBarraTituloL.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PBarraTituloL.Location = new System.Drawing.Point(0, 0);
-            this.PBarraTituloL.Name = "PBarraTituloL";
-            this.PBarraTituloL.Size = new System.Drawing.Size(230, 43);
-            this.PBarraTituloL.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(54, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "SISTEMA CONTABLE";
-            // 
-            // tmExpandirMenu
-            // 
-            this.tmExpandirMenu.Interval = 15;
-            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
-            // 
-            // tmContraerMenu
-            // 
-            this.tmContraerMenu.Interval = 15;
-            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
-            // 
-            // tmFechaHora
-            // 
-            this.tmFechaHora.Enabled = true;
-            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::SistemaVentaFacturacion.Properties.Resources.user;
-            this.pictureBox7.Location = new System.Drawing.Point(12, 18);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(65, 65);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 3;
-            this.pictureBox7.TabStop = false;
             // 
             // btnCompraProductos
             // 
@@ -418,6 +318,15 @@
             this.btnPartidasContables.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPartidasContables.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPartidasContables.UseVisualStyleBackColor = true;
+            this.btnPartidasContables.Click += new System.EventHandler(this.btnPartidasContables_Click);
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(0, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(229, 2);
+            this.label6.TabIndex = 15;
             // 
             // btnListaUsuarios
             // 
@@ -464,6 +373,15 @@
             this.btnListaClientes.UseVisualStyleBackColor = true;
             this.btnListaClientes.Click += new System.EventHandler(this.btnListaClientes_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnSalir);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 511);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(230, 46);
+            this.panel3.TabIndex = 17;
+            // 
             // btnSalir
             // 
             this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -477,6 +395,29 @@
             this.btnSalir.TabStop = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnMenu);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(230, 90);
+            this.panel2.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(-3, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(230, 24);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "MENU";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // btnMenu
             // 
             this.btnMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -489,6 +430,30 @@
             this.btnMenu.TabIndex = 12;
             this.btnMenu.TabStop = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // PanelBarraTitulo
+            // 
+            this.PanelBarraTitulo.BackColor = System.Drawing.Color.SteelBlue;
+            this.PanelBarraTitulo.Controls.Add(this.PBarraTituloR);
+            this.PanelBarraTitulo.Controls.Add(this.PBarraTituloL);
+            this.PanelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.PanelBarraTitulo.Name = "PanelBarraTitulo";
+            this.PanelBarraTitulo.Size = new System.Drawing.Size(1100, 43);
+            this.PanelBarraTitulo.TabIndex = 1;
+            this.PanelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBarraTitulo_MouseDown);
+            // 
+            // PBarraTituloR
+            // 
+            this.PBarraTituloR.Controls.Add(this.btnNormal);
+            this.PBarraTituloR.Controls.Add(this.btnMinimizar);
+            this.PBarraTituloR.Controls.Add(this.btnMaximizar);
+            this.PBarraTituloR.Controls.Add(this.btnCerrar);
+            this.PBarraTituloR.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PBarraTituloR.Location = new System.Drawing.Point(918, 0);
+            this.PBarraTituloR.Name = "PBarraTituloR";
+            this.PBarraTituloR.Size = new System.Drawing.Size(182, 43);
+            this.PBarraTituloR.TabIndex = 0;
             // 
             // btnNormal
             // 
@@ -547,6 +512,16 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // PBarraTituloL
+            // 
+            this.PBarraTituloL.Controls.Add(this.pictureBox1);
+            this.PBarraTituloL.Controls.Add(this.label1);
+            this.PBarraTituloL.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PBarraTituloL.Location = new System.Drawing.Point(0, 0);
+            this.PBarraTituloL.Name = "PBarraTituloL";
+            this.PBarraTituloL.Size = new System.Drawing.Size(230, 43);
+            this.PBarraTituloL.TabIndex = 5;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaVentaFacturacion.Properties.Resources.iconosys;
@@ -556,6 +531,32 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(54, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(142, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "SISTEMA CONTABLE";
+            // 
+            // tmExpandirMenu
+            // 
+            this.tmExpandirMenu.Interval = 15;
+            this.tmExpandirMenu.Tick += new System.EventHandler(this.tmExpandirMenu_Tick);
+            // 
+            // tmContraerMenu
+            // 
+            this.tmContraerMenu.Interval = 15;
+            this.tmContraerMenu.Tick += new System.EventHandler(this.tmContraerMenu_Tick);
+            // 
+            // tmFechaHora
+            // 
+            this.tmFechaHora.Enabled = true;
+            this.tmFechaHora.Tick += new System.EventHandler(this.tmFechaHora_Tick);
             // 
             // FormMenuPrincipal
             // 
@@ -574,17 +575,17 @@
             this.panelContenedorPrincipal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelOpciones.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.PanelBarraTitulo.ResumeLayout(false);
             this.PBarraTituloR.ResumeLayout(false);
             this.PBarraTituloL.ResumeLayout(false);
             this.PBarraTituloL.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

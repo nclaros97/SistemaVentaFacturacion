@@ -34,10 +34,11 @@ namespace SistemaVentaFacturacion.Usuarios
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            FormMantUsuarios frm = new FormMantUsuarios();
-            frm.IsInsert = false;
+           
             if (GridUsuarios.SelectedRows.Count == 1)
             {
+                FormMantUsuarios frm = new FormMantUsuarios();
+                frm.IsInsert = false;
                 frm.txtId.Text = GridUsuarios.CurrentRow.Cells[1].Value.ToString();
                 frm.txtNick.Text = GridUsuarios.CurrentRow.Cells[2].Value.ToString();
                 frm.txtNombres.Text = GridUsuarios.CurrentRow.Cells[3].Value.ToString();

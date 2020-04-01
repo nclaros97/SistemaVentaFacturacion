@@ -14,6 +14,19 @@ namespace LOGICA.LUsuarios
         public static List<funciones> FuncionesG { get => funcionesG; set => funcionesG = value; }
         public static List<permisos> PermisosG { get => permisosG; set => permisosG = value; }
 
+        public static int idUsuarioSesion()
+        {
+            int idUser = 0;
+
+            foreach (var item in funcionesG)
+            {
+                idUser = item.UserId;
+                break;
+            }
+
+            return idUser;
+        }
+
         public static bool verificarPassw(string psw, bool editar)
         {
             if (editar)
@@ -78,6 +91,104 @@ namespace LOGICA.LUsuarios
                 //si cumple con todo, regresa true
             }
             return true;
+        }
+
+        public static void seguridad_Cuentas(Control.ControlCollection controls, string name)
+        {
+            try
+            {
+                foreach (var funcion in funcionesG)
+                {
+                    if (funcion.NombreFuncion.Equals(name))
+                    {
+                        foreach (var permiso in permisosG)
+                        {
+                            foreach (Control control in controls)
+                            {
+                                if (control is Button)
+                                {
+                                    if (permiso.Permiso.Equals(control.AccessibleName) && permiso.NombreFuncion.Equals(name) && permiso.Nivel && !control.Text.Equals("+"))
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                    if (permiso.Permiso.Equals(control.AccessibleName) && permiso.NombreFuncion.Equals("Formulario Tipo Cuentas") && permiso.Nivel && control.Text.Equals("+"))
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+
+                                if (control is DataGridView)
+                                {
+                                    DataGridView dg = control as DataGridView;
+                                    for (int i = 0; i < dg.Rows.Count - 1; i++)
+                                    {
+                                        if (permiso.Permiso.Equals("Editar") && name.Equals(permiso.NombreFuncion) && permiso.Nivel)
+                                        {
+                                            dg.Rows[i].Cells[0].ReadOnly = false;
+                                        }
+                                        if (permiso.Permiso.Equals("Eliminar") && name.Equals(permiso.NombreFuncion) && permiso.Nivel)
+                                        {
+                                            dg.Rows[i].Cells[1].ReadOnly = false;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR OPCIONES TIPO CUENTA: \n{ex.ToString()}");
+            }
+        }
+
+        public static void seguridad_opcionesTipoCuenta(Control.ControlCollection controls, string name)
+        {
+            try
+            {
+                foreach (var funcion in funcionesG)
+                {
+                    if (funcion.NombreFuncion.Equals(name))
+                    {
+                        foreach (var permiso in permisosG)
+                        {
+                           foreach (Control control in controls)
+                            {
+                                if (control is Button)
+                                {
+                                    if (permiso.Permiso.Equals(control.AccessibleName) && permiso.NombreFuncion.Equals(name) && permiso.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+
+                                if(control is DataGridView)
+                                {
+                                    DataGridView dg = control as DataGridView;
+                                    for (int i = 0; i < dg.Rows.Count - 1; i++)
+                                    {
+                                        if (permiso.Permiso.Equals("Editar") && name.Equals(permiso.NombreFuncion) && permiso.Nivel)
+                                        {
+                                            dg.Rows[i].Cells[0].ReadOnly = false;
+                                        }
+                                        if (permiso.Permiso.Equals("Eliminar") && name.Equals(permiso.NombreFuncion) && permiso.Nivel)
+                                        {
+                                            dg.Rows[i].Cells[1].ReadOnly = false;
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR OPCIONES TIPO CUENTA: \n{ex.ToString()}");
+            }
         }
 
         public static void seguridad_opcionesListaRolesUser(Control.ControlCollection controls, string name)
@@ -442,5 +553,105 @@ namespace LOGICA.LUsuarios
                 MessageBox.Show($"Error al habilitar las funciones: \n {ex.ToString()}");
             }
         }
+
+        public static void seguridad_opcionListaContabilidad(Control.ControlCollection controlCollection, string name)
+        {
+
+            try
+            {
+                foreach (var funciones in funcionesG)
+                {
+                    if (funciones.NombreFuncion.Equals(name))
+                    {
+                        foreach (var permisos in permisosG)
+                        {
+                            foreach (Control control in controlCollection)
+                            {
+                                if (control is Button)
+                                {
+                                    if (permisos.Permiso.Equals(control.AccessibleName) && permisos.NombreFuncion.Equals(name) && permisos.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //gestion cuentas
+
+                foreach (var funciones in funcionesG)
+                {
+                    if (funciones.NombreFuncion.Equals("Formulario Gestion Cuentas"))
+                    {
+                        foreach (var permisos in permisosG)
+                        {
+                            foreach (Control control in controlCollection)
+                            {
+                                if (control is Button)
+                                {
+                                    if (control.Text.Equals("Gestion Cuentas"))
+                                    {
+                                        if (permisos.Permiso.Equals(control.AccessibleName) && permisos.Nivel)
+                                        {
+                                            control.Enabled = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR:\n\n{ex.ToString()}");
+            }
+
+        }
+
+
+        public static void seguridad_FormularioPartidas(Control.ControlCollection controls, string accName)
+        {
+            foreach (Control control in controls)
+            {
+                if (control is Button)
+                {
+                    foreach (var funcion in funcionesG)
+                    {
+                        if (accName.Equals(funcion.NombreFuncion))
+                        {
+                            foreach (var item in permisosG)
+                            {
+                                if (control.Text.Equals("Editar"))
+                                {
+                                    if (item.Permiso.Equals(control.AccessibleName) && item.NombreFuncion.Equals("Formulario Detalle Partida") && item.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                                else if (control.Text.Equals("Eliminar"))
+                                {
+                                    if (item.Permiso.Equals(control.AccessibleName) && item.NombreFuncion.Equals("Formulario Detalle Partida") && item.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                                else
+                                {
+                                    if (item.Permiso.Equals(control.AccessibleName) && item.NombreFuncion.Equals(accName) && item.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
     }
 }

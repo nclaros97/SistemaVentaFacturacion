@@ -11,5 +11,7 @@ namespace LOGICA.LUsuarios
         public string RolDescripcion { get; set; }
 
         public string UserNick { get; set; }
+
+        public int UserId { get; set; }
     }
 }

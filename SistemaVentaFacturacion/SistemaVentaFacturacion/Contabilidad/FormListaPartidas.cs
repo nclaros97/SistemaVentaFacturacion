@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LOGICA.LContabilidad;
+using LOGICA.LUsuarios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,17 +18,6 @@ namespace SistemaVentaFacturacion.Contabilidad
         public FormListaPartidas()
         {
             InitializeComponent();
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        
-
-        private void BtnCerrar_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -49,8 +40,10 @@ namespace SistemaVentaFacturacion.Contabilidad
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            //FormMantCliente frm = new FormMantCliente();
-            //frm.ShowDialog();
+            FormMantPartidas frm = new FormMantPartidas();
+            frm.IsInsert = true;
+            frm.FormClosed += new FormClosedEventHandler(Form3_Closed);
+            frm.ShowDialog();
         }
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -91,7 +84,80 @@ namespace SistemaVentaFacturacion.Contabilidad
 
         private void FormListaPartidas_Load(object sender, EventArgs e)
         {
+            try
+            {
+                GridPartidasContables.DataSource = scriptsContabilidad.getGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR OBTENER GRID: \n {ex.ToString()}");
+            }
 
+            foreach (Control item in this.Controls)
+            {
+                if (item is Button)
+                {
+                    if (!item.Name.Equals("BtnCerrar"))
+                    {
+                        item.Enabled = false;
+                    }
+
+                }
+            }
+
+            validaciones.seguridad_opcionListaContabilidad(this.Controls, this.AccessibleName);
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form3_Closed(object sender, EventArgs e)
+        {
+            GridPartidasContables.DataSource = scriptsContabilidad.getGrid();
+        }
+
+        private void btnGestionCuenta_Click(object sender, EventArgs e)
+        {
+            FormMantCuentas frm = new FormMantCuentas();
+            frm.FormClosed += new FormClosedEventHandler(Form3_Closed);
+            frm.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (GridPartidasContables.SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show($"¿Está seguro de eliminar la partida: {GridPartidasContables.CurrentRow.Cells[1].Value.ToString()}?",
+                   "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    scriptsContabilidad.deletePartida(System.Convert.ToInt32(GridPartidasContables.CurrentRow.Cells[0].Value.ToString()));
+                    GridPartidasContables.DataSource = scriptsContabilidad.getGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Eliminacion cancelada");
+                }
+            }
+            else
+                MessageBox.Show("seleccione una fila por favor");
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            if (GridPartidasContables.SelectedRows.Count == 1)
+            {
+                FormMantPartidas frm = new FormMantPartidas();
+                frm.IsInsert = false;
+                frm.txtid.Text = GridPartidasContables.CurrentRow.Cells[0].Value.ToString();
+                frm.txtDetallePartida.Text = GridPartidasContables.CurrentRow.Cells[1].Value.ToString();
+                frm.fecha.Value = Convert.ToDateTime(GridPartidasContables.CurrentRow.Cells[2].Value.ToString());
+                frm.FormClosed += new FormClosedEventHandler(Form3_Closed);
+                frm.ShowDialog();
+            }
+            else
+                MessageBox.Show("seleccione una fila por favor");
         }
     }
 }

@@ -28,6 +28,7 @@ ALTER PROCEDURE WWUsuarios
 	@usuCorreo varchar(100) = 'null',
 	@usuTelefono char(20) = 'null',
 	@usuPassw varchar(100) = 'null',
+	@CONTADOR INT = 0 OUTPUT,
 	--Fin Parametros Usuario
 
 	--Parametros Roles de Usuario
@@ -135,6 +136,27 @@ BEGIN
 			  ,[usuCorreo] AS 'CORREO'
 			  ,[usuTelefono] AS 'TELEFONO'
 			  FROM [dbo].[Usuario]
+	END
+
+	IF @accion = 'VERIFICAR_USUARIO_NICK'
+	BEGIN
+	SELECT @CONTADOR = COUNT(Usuario.usuNick)
+	FROM Usuario 
+	WHERE Usuario.usuNick = @usuNick
+	END
+
+	IF @accion = 'VERIFICAR_USUARIO_EMAIL'
+	BEGIN
+	SELECT @CONTADOR = COUNT(Usuario.usuCorreo)
+	FROM Usuario 
+	WHERE Usuario.usuCorreo = @usuCorreo
+	END
+
+	IF @accion = 'VERIFICAR_USUARIO_TELEFONO'
+	BEGIN
+	SELECT @CONTADOR = COUNT(Usuario.usuTelefono)
+	FROM Usuario 
+	WHERE Usuario.usuTelefono = @usuTelefono
 	END
 
 	IF @accion = 'SELECT_GRID_USER_PARAMETRO'
@@ -488,7 +510,8 @@ BEGIN
 
 	 IF @accion = 'GET_DATA_USER'
 	 BEGIN
-		SELECT Usuario.usuNick, Usuario.usuCorreo, RolesUsuario.rolId, Rol.rolDescripcion, Funciones.funDescripcion , FuncionesRoles.funRolesId, Usuario.usuNombres ,Usuario.usuApellidos
+		SELECT Usuario.usuNick, Usuario.usuCorreo, RolesUsuario.rolId, Rol.rolDescripcion, Funciones.funDescripcion , FuncionesRoles.funRolesId, Usuario.usuNombres,
+		Usuario.usuApellidos, Usuario.usuId
 		FROM Usuario LEFT JOIN RolesUsuario ON Usuario.usuId = RolesUsuario.usuId LEFT JOIN Rol ON RolesUsuario.rolId = Rol.rolId LEFT JOIN FuncionesRoles on Rol.rolId = FuncionesRoles.rolId
 		LEFT JOIN Funciones ON FuncionesRoles.funId = Funciones.funId
 		 WHERE (Usuario.usuNick = @usuNick OR Usuario.usuCorreo = @email) AND Usuario.usuPassw = @usuPassw

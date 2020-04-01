@@ -42,3 +42,4 @@ C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturac
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\bin\Debug\System.Data.SqlClient.xml
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormListaRoles.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantPermisosFunciones.resources
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Contabilidad.FormListaCuenta.resources

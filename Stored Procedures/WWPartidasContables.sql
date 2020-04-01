@@ -18,7 +18,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE WWPartidasContables
+ALTER PROCEDURE WWPartidasContables
 	-- Add the parameters for the stored procedure here
 	@parId int =0,
 	@parDescripcion varchar(100) = 'null',
@@ -61,8 +61,7 @@ BEGIN
 	IF @accion = 'UPD_CUENTA'
 	BEGIN 
 		UPDATE [dbo].[Cuentas]
-		SET [ctaId] = @ctaId
-		,[ctaDescripcion] = @ctaDescripcion
+		SET [ctaDescripcion] = @ctaDescripcion
 		,[claCtaId] = @claCtaId
 		WHERE ctaId = @ctaId
 	END
@@ -75,10 +74,21 @@ BEGIN
 
 	IF @accion = 'SELECT_GRID_CUENTAS'
 	BEGIN 
-		SELECT [ctaId] AS 'ID CTA'
-		,[ctaDescripcion] AS 'DESCRIPCION'
+		SELECT Cuentas.[ctaId] AS 'ID CTA'
+		,Cuentas.[ctaDescripcion] AS 'DESCRIPCION'
+		,ClasificacionCuenta.claCtaId AS 'ID TIPO'
 		,ClasificacionCuenta.claCtaDescripcion AS 'TIPO'
 		 FROM [dbo].[Cuentas] INNER JOIN ClasificacionCuenta ON Cuentas.claCtaId = ClasificacionCuenta.claCtaId
+	END
+
+	IF @accion = 'SELECT_GRID_CUENTA_ID'
+	BEGIN 
+		SELECT Cuentas.[ctaId] AS 'ID CTA'
+		,Cuentas.[ctaDescripcion] AS 'DESCRIPCION'
+		,ClasificacionCuenta.claCtaId AS 'ID TIPO'
+		,ClasificacionCuenta.claCtaDescripcion AS 'TIPO'
+		 FROM [dbo].[Cuentas] INNER JOIN ClasificacionCuenta ON Cuentas.claCtaId = ClasificacionCuenta.claCtaId
+		 WHERE Cuentas.ctaId = @ctaId
 	END
 
 	IF @accion = 'SELECT_GRID_CUENTAS_PARAMETRO'
@@ -194,7 +204,7 @@ BEGIN
 
 	IF @accion = 'SELECT_LAST_ID_PARTIDA'
 	BEGIN 
-	SELECT TOP 1 parId
+	SELECT TOP 1 @IdRetorno = parId
 	FROM PartidasContable ORDER BY parId DESC
 
 	RETURN
@@ -223,7 +233,7 @@ BEGIN
 	BEGIN 
 	UPDATE [dbo].[PartidasContableDetalle]
     SET [parId] = @parId
-      ,[ctaId] = ctaId
+      ,[ctaId] = @ctaId
       ,[parConDetDebe] = @parConDetDebe
       ,[parConDetHaber] = @parConDetHaber
 	WHERE parConDetId = @parConDetId
@@ -236,12 +246,15 @@ BEGIN
 
 	IF @accion = 'SELECT_GRID_DETALLE_PARTIDAS'
 	BEGIN 
-	SELECT [parId] AS 'PARTIDA ID'
-      ,[parConDetId] AS 'DET PARTIDA ID'
-      ,[ctaId] AS 'CUENTA ID'
+	SELECT
+       PartidasContableDetalle.[parConDetId] AS 'DETALLE ID'
+      ,Cuentas.[ctaId] AS 'CUENTA ID'
+	  ,Cuentas.ctaDescripcion AS 'DESCRIPCION'
+	  ,ClasificacionCuenta.claCtaDescripcion AS 'TIPO'
       ,[parConDetDebe] AS 'DEBE'
       ,[parConDetHaber] AS 'HABER'
-	FROM [dbo].[PartidasContableDetalle]
+	FROM [dbo].[PartidasContableDetalle] INNER JOIN Cuentas ON Cuentas.ctaId = PartidasContableDetalle.ctaId INNER JOIN ClasificacionCuenta ON ClasificacionCuenta.claCtaId = Cuentas.claCtaId
+	WHERE PartidasContableDetalle.parId = @parId
 	END
 
 	IF @accion = 'SELECT_GRID_DETALLE_PARTIDAS_PARAMETRO'

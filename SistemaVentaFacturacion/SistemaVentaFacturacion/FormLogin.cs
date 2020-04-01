@@ -56,7 +56,8 @@ namespace SistemaVentaFacturacion
                             {
                                 NombreFuncion = credenciales.Rows[i][4].ToString(),
                                 RolDescripcion = credenciales.Rows[i][3].ToString(),
-                                UserNick = credenciales.Rows[i][0].ToString()
+                                UserNick = credenciales.Rows[i][0].ToString(),
+                                UserId = Convert.ToInt32(credenciales.Rows[i][8].ToString())
                             });
                             if (!credenciales.Rows[i][3].ToString().Equals(""))
                             {

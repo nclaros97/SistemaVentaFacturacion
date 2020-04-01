@@ -1,5 +1,6 @@
 ﻿using LOGICA.LUsuarios;
 using SistemaVentaFacturacion.Clientes;
+using SistemaVentaFacturacion.Contabilidad;
 using SistemaVentaFacturacion.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -305,6 +306,13 @@ namespace SistemaVentaFacturacion
                 }
             }
             Login();
+        }
+
+        private void btnPartidasContables_Click(object sender, EventArgs e)
+        {
+            FormListaPartidas fm = new FormListaPartidas();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

@@ -106,6 +106,12 @@
     <Compile Include="Contabilidad\FormMantPartidas.designer.cs">
       <DependentUpon>FormMantPartidas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contabilidad\FormListaCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contabilidad\FormListaCuenta.designer.cs">
+      <DependentUpon>FormListaCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion\FormFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Contabilidad\FormMantPartidas.resx">
       <DependentUpon>FormMantPartidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contabilidad\FormListaCuenta.resx">
+      <DependentUpon>FormListaCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\FormFacturacion.resx">
       <DependentUpon>FormFacturacion.cs</DependentUpon>
