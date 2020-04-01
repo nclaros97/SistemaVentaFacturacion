@@ -14,7 +14,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE WWUsuarios
+CREATE PROCEDURE WWUsuarios
 	-- Add the parameters for the stored procedure here
 
 	--Parametros Usuario

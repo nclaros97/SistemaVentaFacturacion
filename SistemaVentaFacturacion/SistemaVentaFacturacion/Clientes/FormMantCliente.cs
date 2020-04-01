@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOGICA.LFacturacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,10 @@ namespace SistemaVentaFacturacion.Clientes
 {
     public partial class FormMantCliente : Form
     {
+        private bool isInsert;
+
+        public bool IsInsert { get => isInsert; set => isInsert = value; }
+
         public FormMantCliente()
         {
             InitializeComponent();
@@ -40,7 +45,14 @@ namespace SistemaVentaFacturacion.Clientes
 
         private void FormMantCliente_Load(object sender, EventArgs e)
         {
-
+            if (isInsert)
+            {
+                lblAccion.Text = "Nuevo Cliente";
+            }
+            else
+            {
+                lblAccion.Text = $"Editar Cliente: {txtnombre.Text} {txtapellido}";
+            }
         }
 
         private void BarraTitulo_Paint(object sender, PaintEventArgs e)
@@ -48,9 +60,22 @@ namespace SistemaVentaFacturacion.Clientes
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConfirmar_Click(object sender, EventArgs e)
         {
-
+            if (IsInsert)
+            {
+                if (scriptFacturacion.insertCliente(txtnombre.Text, txtapellido.Text, txtdireccion.Text, txttelefono.Text, txtCorreo.Text) )
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                if (scriptFacturacion.updateCliente(int.Parse(txtid.Text), txtnombre.Text, txtapellido.Text, txtdireccion.Text, txttelefono.Text, txtCorreo.Text) )
+                {
+                    this.Close();
+                }
+            }
         }
     }
 }

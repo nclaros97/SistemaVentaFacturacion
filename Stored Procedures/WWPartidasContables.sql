@@ -18,7 +18,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE WWPartidasContables
+CREATE PROCEDURE WWPartidasContables
 	-- Add the parameters for the stored procedure here
 	@parId int =0,
 	@parDescripcion varchar(100) = 'null',

@@ -1,6 +1,8 @@
 ﻿using LOGICA.LUsuarios;
 using SistemaVentaFacturacion.Clientes;
 using SistemaVentaFacturacion.Contabilidad;
+using SistemaVentaFacturacion.Inventario;
+using SistemaVentaFacturacion.Productos;
 using SistemaVentaFacturacion.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -311,6 +313,20 @@ namespace SistemaVentaFacturacion
         private void btnPartidasContables_Click(object sender, EventArgs e)
         {
             FormListaPartidas fm = new FormListaPartidas();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            FormListaInventario fm = new FormListaInventario();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            FormListaProductos fm = new FormListaProductos();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

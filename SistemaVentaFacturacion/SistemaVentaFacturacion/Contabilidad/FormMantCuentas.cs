@@ -107,7 +107,7 @@ namespace SistemaVentaFacturacion.Contabilidad
 
         private void Form3_Closed(object sender, EventArgs e)
         {
-           //volver a llamar metodo para cargar combobox
+            getCb();
         }
 
         private void btnGestionTipoCuenta_Click(object sender, EventArgs e)

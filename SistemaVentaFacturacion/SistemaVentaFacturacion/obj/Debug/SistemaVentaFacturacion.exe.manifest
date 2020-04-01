@@ -54,26 +54,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LOGICA.dll" size="39936">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LOGICA.dll" size="51200">
       <assemblyIdentity name="LOGICA" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>//bb84XggnHnUN1dvA0ybHjpTTLDR/Dk+lXa+t44GQA=</dsig:DigestValue>
+        <dsig:DigestValue>FPQGh9+Hq8lGmujRVSpXRxz04KFaV8kCl/qi5bvKiQs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SistemaVentaFacturacion.exe" size="1037312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SistemaVentaFacturacion.exe" size="1048576">
       <assemblyIdentity name="SistemaVentaFacturacion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5CNZQq082jDcSScZOqbGeFwUeLG9Zg1u4AVi09sMubU=</dsig:DigestValue>
+        <dsig:DigestValue>9URd5rKiHYYkVVY0gMo/uBLCxinZyZqB2RBHhbZ0UQs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

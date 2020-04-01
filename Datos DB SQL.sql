@@ -102,7 +102,7 @@ CREATE TABLE [Unidades] (
      PRIMARY KEY ( [uniId] ))
 
 CREATE TABLE [Categoria] ( 
-  [catProductoId]          INT    NOT NULL, 
+  [catProductoId]          INT NOT NULL IDENTITY(1,1), 
   [catProductoDescripcion] VARCHAR(100)    NOT NULL, 
      PRIMARY KEY ( [catProductoId] ))
 

@@ -160,29 +160,29 @@
     <Compile Include="Productos\FormListaProductos.designer.cs">
       <DependentUpon>FormListaProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productos\FormMantCategorias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Productos\FormMantCategorias.designer.cs">
-      <DependentUpon>FormMantCategorias.cs</DependentUpon>
-    </Compile>
     <Compile Include="Productos\FormMantImpuestos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Productos\FormMantImpuestos.designer.cs">
       <DependentUpon>FormMantImpuestos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productos\FormMantCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Productos\FormMantCompras.designer.cs">
-      <DependentUpon>FormMantCompras.cs</DependentUpon>
-    </Compile>
     <Compile Include="Productos\FormMantUnidades.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Productos\FormMantUnidades.designer.cs">
       <DependentUpon>FormMantUnidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\FormMantCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\FormMantCategorias.designer.cs">
+      <DependentUpon>FormMantCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\FormMantCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\FormMantCompras.designer.cs">
+      <DependentUpon>FormMantCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\FormMantProductos.cs">
       <SubType>Form</SubType>
@@ -270,17 +270,17 @@
     <EmbeddedResource Include="Productos\FormListaProductos.resx">
       <DependentUpon>FormListaProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Productos\FormMantCategorias.resx">
-      <DependentUpon>FormMantCategorias.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Productos\FormMantImpuestos.resx">
       <DependentUpon>FormMantImpuestos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Productos\FormMantCompras.resx">
-      <DependentUpon>FormMantCompras.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Productos\FormMantUnidades.resx">
       <DependentUpon>FormMantUnidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\FormMantCategorias.resx">
+      <DependentUpon>FormMantCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\FormMantCompras.resx">
+      <DependentUpon>FormMantCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\FormMantProductos.resx">
       <DependentUpon>FormMantProductos.cs</DependentUpon>

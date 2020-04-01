@@ -29,22 +29,26 @@
         private void InitializeComponent()
         {
             this.BarraTitulo = new System.Windows.Forms.Panel();
-            this.lblAccion = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.txtnombre = new System.Windows.Forms.TextBox();
-            this.txtapellido = new System.Windows.Forms.TextBox();
-            this.txtdireccion = new System.Windows.Forms.TextBox();
-            this.txttelefono = new System.Windows.Forms.TextBox();
+            this.lblAccion = new System.Windows.Forms.Label();
+            this.txtProducto = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.cbUnidades = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbImpuestos = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnGestionCategoria = new System.Windows.Forms.Button();
+            this.btnGestionUnidades = new System.Windows.Forms.Button();
+            this.btnGestionImpuesto = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,17 +65,6 @@
             this.BarraTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.BarraTitulo_Paint);
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
-            // lblAccion
-            // 
-            this.lblAccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccion.ForeColor = System.Drawing.Color.White;
-            this.lblAccion.Location = new System.Drawing.Point(0, 0);
-            this.lblAccion.Name = "lblAccion";
-            this.lblAccion.Size = new System.Drawing.Size(451, 38);
-            this.lblAccion.TabIndex = 15;
-            this.lblAccion.Text = "Accion";
-            this.lblAccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BtnCerrar
             // 
             this.BtnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -86,37 +79,40 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // txtnombre
+            // lblAccion
             // 
-            this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre.Location = new System.Drawing.Point(117, 98);
-            this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(244, 23);
-            this.txtnombre.TabIndex = 3;
+            this.lblAccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccion.ForeColor = System.Drawing.Color.White;
+            this.lblAccion.Location = new System.Drawing.Point(0, 0);
+            this.lblAccion.Name = "lblAccion";
+            this.lblAccion.Size = new System.Drawing.Size(451, 38);
+            this.lblAccion.TabIndex = 15;
+            this.lblAccion.Text = "Accion";
+            this.lblAccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtapellido
+            // txtProducto
             // 
-            this.txtapellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtapellido.Location = new System.Drawing.Point(117, 127);
-            this.txtapellido.Name = "txtapellido";
-            this.txtapellido.Size = new System.Drawing.Size(244, 23);
-            this.txtapellido.TabIndex = 4;
+            this.txtProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProducto.Location = new System.Drawing.Point(117, 98);
+            this.txtProducto.Name = "txtProducto";
+            this.txtProducto.Size = new System.Drawing.Size(244, 23);
+            this.txtProducto.TabIndex = 3;
             // 
-            // txtdireccion
+            // txtDescripcion
             // 
-            this.txtdireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdireccion.Location = new System.Drawing.Point(117, 156);
-            this.txtdireccion.Name = "txtdireccion";
-            this.txtdireccion.Size = new System.Drawing.Size(244, 23);
-            this.txtdireccion.TabIndex = 5;
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(117, 127);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(244, 23);
+            this.txtDescripcion.TabIndex = 4;
             // 
-            // txttelefono
+            // txtPrecio
             // 
-            this.txttelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono.Location = new System.Drawing.Point(117, 185);
-            this.txttelefono.Name = "txttelefono";
-            this.txttelefono.Size = new System.Drawing.Size(244, 23);
-            this.txttelefono.TabIndex = 6;
+            this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecio.Location = new System.Drawing.Point(117, 156);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(244, 23);
+            this.txtPrecio.TabIndex = 5;
             // 
             // label2
             // 
@@ -127,7 +123,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Nombres:";
+            this.label2.Text = "Producto:";
             // 
             // label1
             // 
@@ -136,9 +132,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(25, 130);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Apellidos:";
+            this.label1.Text = "Descripcion:";
             // 
             // label3
             // 
@@ -147,9 +143,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(25, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.Size = new System.Drawing.Size(52, 17);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Direccion:";
+            this.label3.Text = "Precio:";
             // 
             // label4
             // 
@@ -158,39 +154,24 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label4.Location = new System.Drawing.Point(25, 188);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 17);
+            this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 10;
-            this.label4.Text = "Teléfono:";
+            this.label4.Text = "Categoria:";
             // 
-            // button1
+            // btnConfirmar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(133, 313);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 35);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(261, 313);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 35);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnConfirmar.FlatAppearance.BorderSize = 0;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnConfirmar.Location = new System.Drawing.Point(261, 313);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(100, 35);
+            this.btnConfirmar.TabIndex = 11;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.UseVisualStyleBackColor = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // label5
             // 
@@ -212,50 +193,135 @@
             this.txtid.Size = new System.Drawing.Size(244, 23);
             this.txtid.TabIndex = 13;
             // 
+            // cbCategoria
+            // 
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(117, 188);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(213, 21);
+            this.cbCategoria.TabIndex = 17;
+            // 
+            // cbUnidades
+            // 
+            this.cbUnidades.FormattingEnabled = true;
+            this.cbUnidades.Location = new System.Drawing.Point(117, 215);
+            this.cbUnidades.Name = "cbUnidades";
+            this.cbUnidades.Size = new System.Drawing.Size(213, 21);
+            this.cbUnidades.TabIndex = 19;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(25, 218);
+            this.label6.Location = new System.Drawing.Point(25, 215);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Email:";
+            this.label6.Size = new System.Drawing.Size(57, 17);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Unidad:";
             // 
-            // textBox1
+            // cbImpuestos
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(117, 215);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 23);
-            this.textBox1.TabIndex = 15;
+            this.cbImpuestos.FormattingEnabled = true;
+            this.cbImpuestos.Location = new System.Drawing.Point(117, 242);
+            this.cbImpuestos.Name = "cbImpuestos";
+            this.cbImpuestos.Size = new System.Drawing.Size(213, 21);
+            this.cbImpuestos.TabIndex = 21;
             // 
-            // FormMantCliente
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(25, 242);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 17);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Impuesto:";
+            // 
+            // btnGestionCategoria
+            // 
+            this.btnGestionCategoria.AccessibleDescription = "Formulario Categorias";
+            this.btnGestionCategoria.AccessibleName = "Visualizar";
+            this.btnGestionCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnGestionCategoria.Enabled = false;
+            this.btnGestionCategoria.FlatAppearance.BorderSize = 0;
+            this.btnGestionCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnGestionCategoria.Location = new System.Drawing.Point(336, 188);
+            this.btnGestionCategoria.Name = "btnGestionCategoria";
+            this.btnGestionCategoria.Size = new System.Drawing.Size(25, 23);
+            this.btnGestionCategoria.TabIndex = 22;
+            this.btnGestionCategoria.Text = "+";
+            this.btnGestionCategoria.UseVisualStyleBackColor = false;
+            this.btnGestionCategoria.Click += new System.EventHandler(this.btnGestionCategoria_Click);
+            // 
+            // btnGestionUnidades
+            // 
+            this.btnGestionUnidades.AccessibleDescription = "Formulario Unidades";
+            this.btnGestionUnidades.AccessibleName = "Visualizar";
+            this.btnGestionUnidades.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnGestionUnidades.Enabled = false;
+            this.btnGestionUnidades.FlatAppearance.BorderSize = 0;
+            this.btnGestionUnidades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionUnidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionUnidades.ForeColor = System.Drawing.Color.White;
+            this.btnGestionUnidades.Location = new System.Drawing.Point(336, 215);
+            this.btnGestionUnidades.Name = "btnGestionUnidades";
+            this.btnGestionUnidades.Size = new System.Drawing.Size(25, 23);
+            this.btnGestionUnidades.TabIndex = 23;
+            this.btnGestionUnidades.Text = "+";
+            this.btnGestionUnidades.UseVisualStyleBackColor = false;
+            this.btnGestionUnidades.Click += new System.EventHandler(this.btnGestionUnidades_Click);
+            // 
+            // btnGestionImpuesto
+            // 
+            this.btnGestionImpuesto.AccessibleDescription = "Formulario Impuestos";
+            this.btnGestionImpuesto.AccessibleName = "Visualizar";
+            this.btnGestionImpuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnGestionImpuesto.Enabled = false;
+            this.btnGestionImpuesto.FlatAppearance.BorderSize = 0;
+            this.btnGestionImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionImpuesto.ForeColor = System.Drawing.Color.White;
+            this.btnGestionImpuesto.Location = new System.Drawing.Point(336, 242);
+            this.btnGestionImpuesto.Name = "btnGestionImpuesto";
+            this.btnGestionImpuesto.Size = new System.Drawing.Size(25, 23);
+            this.btnGestionImpuesto.TabIndex = 24;
+            this.btnGestionImpuesto.Text = "+";
+            this.btnGestionImpuesto.UseVisualStyleBackColor = false;
+            this.btnGestionImpuesto.Click += new System.EventHandler(this.btnGestionImpuesto_Click);
+            // 
+            // FormMantProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 360);
+            this.Controls.Add(this.btnGestionImpuesto);
+            this.Controls.Add(this.btnGestionUnidades);
+            this.Controls.Add(this.btnGestionCategoria);
+            this.Controls.Add(this.cbImpuestos);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cbUnidades);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtid);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txttelefono);
-            this.Controls.Add(this.txtdireccion);
-            this.Controls.Add(this.txtapellido);
-            this.Controls.Add(this.txtnombre);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.txtProducto);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormMantCliente";
+            this.Name = "FormMantProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormMantCliente";
-            this.Load += new System.EventHandler(this.FormMantCliente_Load);
+            this.Load += new System.EventHandler(this.FormMantProductos_Load);
             this.BarraTitulo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -270,16 +336,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnCancelar;
-        public System.Windows.Forms.TextBox txtnombre;
-        public System.Windows.Forms.TextBox txtapellido;
-        public System.Windows.Forms.TextBox txtdireccion;
-        public System.Windows.Forms.TextBox txttelefono;
+        private System.Windows.Forms.Button btnConfirmar;
+        public System.Windows.Forms.TextBox txtProducto;
+        public System.Windows.Forms.TextBox txtDescripcion;
+        public System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label lblAccion;
+        public System.Windows.Forms.ComboBox cbCategoria;
+        public System.Windows.Forms.ComboBox cbUnidades;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.ComboBox cbImpuestos;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnGestionCategoria;
+        private System.Windows.Forms.Button btnGestionUnidades;
+        private System.Windows.Forms.Button btnGestionImpuesto;
     }
 }
