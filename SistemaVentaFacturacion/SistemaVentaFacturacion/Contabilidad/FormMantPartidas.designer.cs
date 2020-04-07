@@ -180,6 +180,7 @@
             this.PDatos.Name = "PDatos";
             this.PDatos.Size = new System.Drawing.Size(873, 480);
             this.PDatos.TabIndex = 19;
+            this.PDatos.Paint += new System.Windows.Forms.PaintEventHandler(this.PDatos_Paint);
             // 
             // btnEliminarDetalle
             // 

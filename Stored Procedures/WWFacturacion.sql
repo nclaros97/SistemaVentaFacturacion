@@ -9,7 +9,6 @@
 -- This block of comments will not be included in
 -- the definition of the procedure.
 -- ================================================
-
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -19,7 +18,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE WWFACTUACION
+CREATE PROCEDURE WWFACTUACION
 	-- Add the parameters for the stored procedure here
 	@parametro varchar(100) = 'null',
 	@accion varchar(100) = 'null',
@@ -60,12 +59,13 @@ ALTER PROCEDURE WWFACTUACION
 	@invCantidadMinima float = 0,
 	@invFechaCreacion datetime = null,
 	@invFechaUltimaAct datetime = null,
-
+	@RetornarStockActual float = 0 OUTPUT,
 	@proNombre varchar(40) = 'null',
 	@proDescripcion varchar(60) = 'null',
 	@proValor smallmoney = 0,
 	@uniId int = 0,
-	@uniDescripcion varchar(100) = 'null'
+	@uniDescripcion varchar(100) = 'null',
+	@comProDescripcion varchar(300) = 'null'
 
 AS
 BEGIN
@@ -97,7 +97,6 @@ BEGIN
 	END
 
 	--FIN TODO UNIDADES
-
 
 
 	--TODO CATEGORIAS
@@ -211,6 +210,18 @@ BEGIN
 	FROM [dbo].[Cliente]
 	END
 
+	IF @accion = 'SELECT_GRID_CLIENTE_ID'
+	BEGIN
+	SELECT [cliId] AS 'ID'
+      ,[cliNombres] AS 'NOMBRES'
+      ,[cliApellidos] AS 'APELLIDOS'
+      ,[cliCorreo] AS 'CORREO'
+      ,[cliTelefono] AS 'TELEFONO'
+      ,[cliDireccion] AS 'DIRECCION'
+	FROM [dbo].[Cliente]
+	WHERE cliId = @cliId
+	END
+
 	IF @accion = 'SELECT_GRID_CLIENTE_PARAMETRO'
 	BEGIN
 	SELECT [cliId] AS 'ID'
@@ -235,11 +246,128 @@ BEGIN
 
 	--TODO COMPRA PRODUCTOS
 
+	IF @accion = 'INS_COMPRA'
+	BEGIN
+	INSERT INTO [dbo].[CompraProductos]
+           ([comProFecha]
+           ,[usuId]
+           ,[comProMontoTotal]
+		   ,[comProDescripcion])
+     VALUES
+           (@comProFecha
+           ,@usuId
+           ,@comProMontoTotal
+		   ,@comProDescripcion)
+	END
+
+	IF @accion = 'UPD_COMPRA'
+	BEGIN
+	UPDATE [dbo].[CompraProductos]
+	SET [comProFecha] = @comProFecha
+      ,[usuId] = @usuId
+      ,[comProMontoTotal] = @comProMontoTotal,
+	  [comProDescripcion] = @comProDescripcion
+	WHERE comProId = @comProId
+	END
+
+	IF @accion = 'DLT_COMPRA'
+	BEGIN
+	DELETE FROM [dbo].CompraProductos
+      WHERE comProId = @comProId
+	END
+
+	IF @accion = 'SELECT_GRID_COMPRA'
+	BEGIN
+	SELECT [comProId] AS 'ID'
+      ,[comProFecha] AS 'FECHA'
+	  ,Usuario.usuNick AS 'USUARIO'
+	  ,[comProDescripcion] AS 'DESCRIPCION'
+      ,[comProMontoTotal] AS 'TOTAL COMPRA'
+	FROM [dbo].[CompraProductos] INNER JOIN Usuario ON Usuario.usuId = CompraProductos.usuId
+	END
+
+	IF @accion = 'COMPRA_ID'
+	BEGIN
+	SELECT TOP 1 @idRetorno = CompraProductos.comProId
+	FROM CompraProductos ORDER BY comProId DESC
+	END
+
+	IF @accion = 'SELECT_GRID_COMPRA_PARAMETRO'
+	BEGIN
+	SELECT [comProId] AS 'ID'
+      ,[comProFecha] AS 'FECHA'
+	  ,[comProDescripcion] AS 'DESCRIPCION'
+      ,[comProMontoTotal] AS 'TOTAL COMPRA'
+	FROM [dbo].[CompraProductos]
+	WHERE (
+	comProId LIKE '%'+@parametro+'%' OR
+	comProFecha LIKE '%'+@parametro+'%' OR
+	comProMontoTotal LIKE '%'+@parametro+'%'
+	)
+	END
+
 	--FIN TODO COMPRA PRODUCTOS
 
 
 
 	--TODO COMPRA PRODUCTOS DETALLE
+
+	IF @accion = 'INS_DETALLE_COMPRA'
+	BEGIN
+	INSERT INTO [dbo].[CompraProductosDetalle]
+           ([comProId]
+           ,[proId]
+           ,[detComProCantidad])
+     VALUES
+           (@comProId
+           ,@proId
+           ,@detComProCantidad)
+	END
+
+	IF @accion = 'UPD_DETALLE_COMPRA'
+	BEGIN
+	UPDATE [dbo].[CompraProductosDetalle]
+	SET [comProId] = @comProId
+      ,[proId] = @proId
+      ,[detComProCantidad] = @detComProCantidad
+	WHERE detComProId = @detComProId
+	END
+
+	IF @accion = 'DLT_DETALLE_COMPRA'
+	BEGIN
+	DELETE FROM [dbo].CompraProductosDetalle
+      WHERE detComProId = @detComProId
+	END
+
+	IF @accion = 'SELECT_GRID_DETALLE_COMPRA'
+	BEGIN
+	SELECT CompraProductosDetalle.[detComProId] AS 'ID'
+      ,Producto.[proId] AS 'ID PRODUCTO'
+	  ,Producto.proNombre AS 'DESCRIPCION'
+	  ,Unidades.uniDescripcion AS 'UNIDADES'
+	  ,Categoria.catProductoDescripcion AS 'CATEGORIA'
+	  ,Producto.proValor AS 'PRECIO'
+      ,[detComProCantidad] AS 'CANTIDAD'
+	  ,(Producto.proValor * [detComProCantidad]) AS 'SUB TOTAL'
+	FROM [dbo].[CompraProductosDetalle] INNER JOIN Producto ON CompraProductosDetalle.proId = Producto.proId INNER JOIN Categoria ON Producto.catProductoId = Categoria.catProductoId
+	INNER JOIN Unidades ON Producto.uniId = Unidades.uniId INNER JOIN Impuestos ON Impuestos.impId = Producto.uniId
+	END
+
+	IF @accion = 'SELECT_GRID_DETALLE_COMPRA_PARAMETRO'
+	BEGIN
+	SELECT CompraProductosDetalle.[detComProId] AS 'ID'
+      ,Producto.[proId] AS 'ID PRODUCTO'
+	  ,Producto.proNombre AS 'DESCRIPCION'
+	  ,Unidades.uniDescripcion AS 'UNIDADES'
+	  ,Categoria.catProductoDescripcion AS 'CATEGORIA'
+	  ,Producto.proValor AS 'PRECIO'
+      ,[detComProCantidad] AS 'CANTIDAD'
+	  ,(Producto.proValor * [detComProCantidad]) AS 'SUB TOTAL'
+	FROM [dbo].[CompraProductosDetalle] INNER JOIN Producto ON CompraProductosDetalle.proId = Producto.proId INNER JOIN Categoria ON Producto.catProductoId = Categoria.catProductoId
+	INNER JOIN Unidades ON Producto.uniId = Unidades.uniId INNER JOIN Impuestos ON Impuestos.impId = Producto.uniId
+	INNER JOIN CompraProductos ON CompraProductos.comProId = CompraProductosDetalle.comProId
+	WHERE CompraProductos.comProId = @comProId
+	END
 
 	--FIN TODO COMPRA PRODUCTOS DETALLE
 
@@ -247,11 +375,115 @@ BEGIN
 
 	--TODO FACTURAS
 
+	IF @accion = 'INS_FACTURA'
+	BEGIN
+	INSERT INTO [dbo].[Factura]
+           ([facFecha]
+           ,[facMontoTotal]
+           ,[cliId]
+		   ,[usuId])
+     VALUES
+           (@facFecha
+           ,@facMontoTotal
+           ,@cliId
+		   ,@usuId)
+	END
+
+	IF @accion = 'UPD_FACTURA'
+	BEGIN
+	UPDATE [dbo].[Factura]
+	SET [facFecha] = @facFecha
+      ,[facMontoTotal] = @facMontoTotal
+      ,[cliId] = @cliId
+	  ,[usuId] = @usuId
+	WHERE facId = @facId
+	END
+
+	IF @accion = 'DLT_FACTURA'
+	BEGIN
+	DELETE FROM [dbo].Factura
+      WHERE facId = @facId
+	END
+	
+	IF @accion = 'SELECT_GRID_FACTURA'
+	BEGIN
+	SELECT [facId] AS 'ID'
+      ,[facFecha] AS 'FECHA'
+      ,CONCAT(Cliente.cliNombres, ' ', Cliente.cliApellidos) AS 'CLIENTE'
+	  ,Cliente.cliId AS 'ID CLIENTE'
+	  ,[facMontoTotal] AS 'MONTO TOTAL'
+	FROM [dbo].[Factura] INNER JOIN Cliente ON Factura.cliId = Cliente.cliId
+	END
+
+	IF @accion = 'FACTURA_ID'
+	BEGIN
+	SELECT TOP 1 @idRetorno = facId
+	FROM Factura ORDER BY facId DESC
+	END
+
+	IF @accion = 'SELECT_GRID_FACTURA_PARAMETRO'
+	BEGIN
+	SELECT [facId] AS 'ID'
+      ,[facFecha] AS 'FECHA'
+      ,CONCAT(Cliente.cliNombres, ' ', Cliente.cliApellidos) AS 'CLIENTE'
+	  ,[facMontoTotal] AS 'MONTO TOTAL'
+	FROM [dbo].[Factura] INNER JOIN Cliente ON Factura.cliId = Cliente.cliId
+	WHERE (
+	Factura.facId LIKE '%'+@parametro+'%' OR
+	facFecha LIKE '%'+@parametro+'%' OR
+	CONCAT(Cliente.cliNombres, ' ', Cliente.cliApellidos) LIKE '%'+@parametro+'%' OR
+	Factura.facMontoTotal LIKE '%'+@parametro+'%'
+	)
+	END
+
 	--FIN TODO FACTURAS
 
 
 
 	--TODO DETALLE FACTURAS
+
+	IF @accion = 'INS_DETALLE_FACTURA'
+	BEGIN
+	INSERT INTO [dbo].[FacturaDetalle]
+           ([facId]
+           ,[proId]
+           ,[detFacCantidad])
+     VALUES
+           (@facId
+           ,@proId
+           ,@detFacCantidad)
+	END
+
+	IF @accion = 'UPD_DETALLE_FACTURA'
+	BEGIN
+	UPDATE [dbo].[FacturaDetalle]
+	SET [facId] = @facId
+      ,[proId] = @proId
+      ,[detFacCantidad] = @detFacCantidad
+	WHERE detFacId = @detFacId
+	END
+
+	IF @accion = 'DLT_DETALLE_FACTURA'
+	BEGIN
+	DELETE FROM [dbo].FacturaDetalle
+      WHERE detFacId = @detFacId
+	END
+
+	IF @accion = 'SELECT_GRID_DETALLE_FACTURA_PARAMETRO'
+	BEGIN
+	SELECT [detFacId] AS 'ID DETALLE'
+      ,Producto.[proId] AS 'ID PRODUCTO'
+	  ,Producto.proNombre AS 'DESCRIPCION'
+	  ,Unidades.uniDescripcion AS 'UNIDADES'
+	  ,Categoria.catProductoDescripcion AS 'CATEGORIA'
+	  ,Producto.proValor AS 'PRECIO'
+	  ,FacturaDetalle.detFacCantidad AS 'CANTIDAD'
+	  ,(Producto.proValor * FacturaDetalle.detFacCantidad) AS 'SUB TOTAL'
+      ,[detFacCantidad]
+	FROM [dbo].[FacturaDetalle] INNER JOIN Producto ON FacturaDetalle.proId = Producto.proId INNER JOIN Categoria ON Producto.catProductoId = Categoria.catProductoId
+	INNER JOIN Unidades ON Producto.uniId = Unidades.uniId INNER JOIN Impuestos ON Impuestos.impId = Producto.uniId INNER JOIN Factura ON Factura.facId = FacturaDetalle.facId
+	WHERE Factura.facId = @facId
+	END
 
 	--FIN TODO DETALLE FACTURAS
 
@@ -288,6 +520,23 @@ BEGIN
       ,Inventario.[invFechaUltimaAct] AS 'MODIFICADO'
 	FROM [dbo].[Inventario] INNER JOIN Producto ON Producto.proId = Inventario.proId INNER JOIN Unidades ON Producto.uniId = Unidades.uniId INNER JOIN Categoria
 	ON Categoria.catProductoId = Producto.catProductoId
+	END
+
+	IF @accion = 'STOCK_INV'
+	BEGIN
+	SELECT @RetornarStockActual = Inventario.[invStock]
+	FROM [dbo].[Inventario] INNER JOIN Producto ON Producto.proId = Inventario.proId INNER JOIN Unidades ON Producto.uniId = Unidades.uniId INNER JOIN Categoria
+	ON Categoria.catProductoId = Producto.catProductoId
+	WHERE Producto.proId = @proId
+	RETURN
+	END
+
+	IF @accion = 'UPD_INVENTARIO_STOCK'
+	BEGIN
+	UPDATE [dbo].[Inventario]
+	SET [invStock] = @invStock
+      ,[invFechaUltimaAct] = @invFechaUltimaAct
+	WHERE Inventario.proId = @proId
 	END
 
 	--FIN TODO INVENTARIO
@@ -344,8 +593,28 @@ BEGIN
 	  ,Unidades.uniDescripcion AS 'UNIDAD'
 	  ,Impuestos.impDescripcion AS 'IMPUESTO'
 	  ,Impuestos.impValor AS '%'
+	  ,Inventario.invStock AS 'STOCK'
+	  ,Inventario.invCantidadMinima AS 'CANTIDAD MINIMA'
 	FROM [dbo].[Producto] INNER JOIN Categoria ON Producto.catProductoId = Categoria.catProductoId INNER JOIN Unidades ON Producto.uniId = Unidades.uniId
-	INNER JOIN Impuestos ON Producto.impId = Impuestos.impId
+	INNER JOIN Inventario ON Producto.proId = Inventario.proId
+	INNER JOIN Impuestos ON Producto.impId = Impuestos.impId 
+	END
+
+	IF @accion = 'SELECT_PRODUCTO'
+	BEGIN
+	SELECT Producto.[proId] AS 'ID'
+      ,Producto.[proNombre] AS 'NOMBRE'
+      ,Producto.[proDescripcion] AS 'DESCRIPCION'
+      ,Producto.[proValor] AS 'PRECIO'
+	  ,Categoria.catProductoDescripcion AS 'CATEGORIA'
+	  ,Unidades.uniDescripcion AS 'UNIDAD'
+	  ,Impuestos.impDescripcion AS 'IMPUESTO'
+	  ,Impuestos.impValor AS '%'
+	  ,Inventario.invStock AS 'STOCK'
+	  ,Inventario.invCantidadMinima AS 'CANTIDAD MINIMA'
+	FROM [dbo].[Producto] INNER JOIN Categoria ON Producto.catProductoId = Categoria.catProductoId INNER JOIN Unidades ON Producto.uniId = Unidades.uniId
+	INNER JOIN Impuestos ON Producto.impId = Impuestos.impId INNER JOIN Inventario ON Producto.proId = Inventario.proId
+	WHERE Producto.proId = @proId
 	END
 
 	IF @accion = 'PRODUCTO_ID'

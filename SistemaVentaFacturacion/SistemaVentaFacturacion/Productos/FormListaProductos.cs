@@ -82,24 +82,31 @@ namespace SistemaVentaFacturacion.Productos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (GridProductos.SelectedRows.Count == 1)
+            try
             {
-                FormMantProductos frm = new FormMantProductos();
+                if (GridProductos.SelectedRows.Count == 1)
+                {
+                    FormMantProductos frm = new FormMantProductos();
 
-                frm.IsInsert = false;
-                frm.txtid.Text = GridProductos.CurrentRow.Cells[0].Value.ToString();
-                frm.txtProducto.Text = GridProductos.CurrentRow.Cells[1].Value.ToString();
-                frm.txtDescripcion.Text = GridProductos.CurrentRow.Cells[2].Value.ToString();
-                frm.txtPrecio.Text = GridProductos.CurrentRow.Cells[3].Value.ToString();
-                frm.cbCategoria.SelectedValue = int.Parse(GridProductos.CurrentRow.Cells[4].Value.ToString());
-                frm.cbUnidades.SelectedValue = int.Parse(GridProductos.CurrentRow.Cells[6].Value.ToString());
-                frm.cbImpuestos.SelectedValue = int.Parse(GridProductos.CurrentRow.Cells[8].Value.ToString());
-                frm.FormClosed += new FormClosedEventHandler(Form3_Closed);
-                frm.ShowDialog();
+                    frm.IsInsert = false;
+                    frm.txtid.Text = GridProductos.CurrentRow.Cells[0].Value.ToString();
+                    frm.txtProducto.Text = GridProductos.CurrentRow.Cells[1].Value.ToString();
+                    frm.txtDescripcion.Text = GridProductos.CurrentRow.Cells[2].Value.ToString();
+                    frm.txtPrecio.Text = GridProductos.CurrentRow.Cells[3].Value.ToString();
+                    frm.cbCategoria.SelectedItem = GridProductos.CurrentRow.Cells[4].Value.ToString();
+                    frm.cbUnidades.SelectedItem = GridProductos.CurrentRow.Cells[5].Value.ToString();
+                    frm.cbImpuestos.SelectedItem = GridProductos.CurrentRow.Cells[6].Value.ToString();
+                    frm.FormClosed += new FormClosedEventHandler(Form3_Closed);
+                    frm.ShowDialog();
 
+                }
+                else
+                    MessageBox.Show("seleccione una fila por favor");
             }
-            else
-                MessageBox.Show("seleccione una fila por favor");
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: "+ex.ToString());
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

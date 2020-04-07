@@ -1,6 +1,6 @@
-﻿namespace SistemaVentaFacturacion.Productos
+﻿namespace SistemaVentaFacturacion.Facturacion
 {
-    partial class FormMantCompras
+    partial class FormMantFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.GridDetalleCompra = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.GridDetalleFactura = new System.Windows.Forms.DataGridView();
             this.detalleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctaDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +40,10 @@
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantMinima = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblAccion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.fecha = new System.Windows.Forms.DateTimePicker();
             this.txtid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,30 +52,31 @@
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.GridDetalleCompra)).BeginInit();
+            this.txtDatosCliente = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.GridDetalleFactura)).BeginInit();
             this.SuspendLayout();
             // 
-            // GridDetalleCompra
+            // GridDetalleFactura
             // 
-            this.GridDetalleCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GridDetalleFactura.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GridDetalleCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.GridDetalleCompra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.GridDetalleCompra.BackgroundColor = System.Drawing.Color.White;
-            this.GridDetalleCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GridDetalleCompra.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.GridDetalleCompra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridDetalleCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.GridDetalleCompra.ColumnHeadersHeight = 30;
-            this.GridDetalleCompra.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GridDetalleFactura.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GridDetalleFactura.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.GridDetalleFactura.BackgroundColor = System.Drawing.Color.White;
+            this.GridDetalleFactura.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GridDetalleFactura.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.GridDetalleFactura.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridDetalleFactura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.GridDetalleFactura.ColumnHeadersHeight = 30;
+            this.GridDetalleFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.detalleId,
             this.ctaId,
             this.ctaDescripcion,
@@ -81,33 +84,35 @@
             this.debe,
             this.precio,
             this.cantidad,
-            this.subTotal});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridDetalleCompra.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GridDetalleCompra.EnableHeadersVisualStyles = false;
-            this.GridDetalleCompra.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
-            this.GridDetalleCompra.Location = new System.Drawing.Point(23, 119);
-            this.GridDetalleCompra.Name = "GridDetalleCompra";
-            this.GridDetalleCompra.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.PaleVioletRed;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridDetalleCompra.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.GridDetalleCompra.Size = new System.Drawing.Size(1105, 515);
-            this.GridDetalleCompra.TabIndex = 23;
-            this.GridDetalleCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDetalleCompra_CellClick);
-            this.GridDetalleCompra.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDetalleCompra_CellEndEdit);
-            this.GridDetalleCompra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GridDetalleCompra_KeyDown);
+            this.subTotal,
+            this.stock,
+            this.cantMinima});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridDetalleFactura.DefaultCellStyle = dataGridViewCellStyle5;
+            this.GridDetalleFactura.EnableHeadersVisualStyles = false;
+            this.GridDetalleFactura.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
+            this.GridDetalleFactura.Location = new System.Drawing.Point(23, 119);
+            this.GridDetalleFactura.Name = "GridDetalleFactura";
+            this.GridDetalleFactura.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.PaleVioletRed;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridDetalleFactura.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.GridDetalleFactura.Size = new System.Drawing.Size(1105, 515);
+            this.GridDetalleFactura.TabIndex = 23;
+            this.GridDetalleFactura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDetalleFactura_CellClick);
+            this.GridDetalleFactura.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridDetalleFactura_CellEndEdit);
+            this.GridDetalleFactura.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GridDetalleFactura_KeyDown);
             // 
             // detalleId
             // 
@@ -149,6 +154,16 @@
             this.subTotal.HeaderText = "SUB TOTAL";
             this.subTotal.Name = "subTotal";
             // 
+            // stock
+            // 
+            this.stock.HeaderText = "STOCK";
+            this.stock.Name = "stock";
+            // 
+            // cantMinima
+            // 
+            this.cantMinima.HeaderText = "MINIMO";
+            this.cantMinima.Name = "cantMinima";
+            // 
             // lblAccion
             // 
             this.lblAccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(45)))), ((int)(((byte)(53)))));
@@ -162,17 +177,19 @@
             this.lblAccion.Text = "Accion";
             this.lblAccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtDescripcion
+            // txtIdCliente
             // 
-            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(23, 81);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(244, 23);
-            this.txtDescripcion.TabIndex = 31;
+            this.txtIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCliente.Location = new System.Drawing.Point(23, 81);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(67, 23);
+            this.txtIdCliente.TabIndex = 31;
+            this.txtIdCliente.TextChanged += new System.EventHandler(this.txtIdCliente_TextChanged);
+            this.txtIdCliente.Leave += new System.EventHandler(this.txtIdCliente_Leave);
             // 
             // fecha
             // 
-            this.fecha.Location = new System.Drawing.Point(366, 55);
+            this.fecha.Location = new System.Drawing.Point(475, 51);
             this.fecha.Name = "fecha";
             this.fecha.Size = new System.Drawing.Size(244, 20);
             this.fecha.TabIndex = 30;
@@ -192,7 +209,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(299, 58);
+            this.label1.Location = new System.Drawing.Point(408, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 28;
@@ -277,45 +294,47 @@
             this.BtnCerrar.UseVisualStyleBackColor = false;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // FormMantCompras
+            // txtDatosCliente
             // 
-            this.AccessibleName = "Formulario Productos";
+            this.txtDatosCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatosCliente.Location = new System.Drawing.Point(96, 81);
+            this.txtDatosCliente.Name = "txtDatosCliente";
+            this.txtDatosCliente.ReadOnly = true;
+            this.txtDatosCliente.Size = new System.Drawing.Size(276, 23);
+            this.txtDatosCliente.TabIndex = 37;
+            // 
+            // FormMantFactura
+            // 
+            this.AccessibleName = "Formulario Facturacion";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1256, 677);
+            this.Controls.Add(this.txtDatosCliente);
             this.Controls.Add(this.BtnCerrar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnEliminarDetalle);
             this.Controls.Add(this.btnEditarDetalle);
-            this.Controls.Add(this.txtDescripcion);
+            this.Controls.Add(this.txtIdCliente);
             this.Controls.Add(this.fecha);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAccion);
-            this.Controls.Add(this.GridDetalleCompra);
-            this.Name = "FormMantCompras";
+            this.Controls.Add(this.GridDetalleFactura);
+            this.Name = "FormMantFactura";
             this.Text = "FormListaProductis";
             this.Load += new System.EventHandler(this.FormMantCompras_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.GridDetalleCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridDetalleFactura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView GridDetalleCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalleId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ctaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ctaDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ctaClasificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn debe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subTotal;
+        private System.Windows.Forms.DataGridView GridDetalleFactura;
         private System.Windows.Forms.Label lblAccion;
-        public System.Windows.Forms.TextBox txtDescripcion;
+        public System.Windows.Forms.TextBox txtIdCliente;
         public System.Windows.Forms.DateTimePicker fecha;
         public System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label label1;
@@ -324,5 +343,16 @@
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button BtnCerrar;
+        public System.Windows.Forms.TextBox txtDatosCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn detalleId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ctaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ctaDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ctaClasificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn debe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantMinima;
     }
 }

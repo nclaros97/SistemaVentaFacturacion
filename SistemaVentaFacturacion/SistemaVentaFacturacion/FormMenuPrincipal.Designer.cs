@@ -234,6 +234,7 @@
             this.btnCompraProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCompraProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCompraProductos.UseVisualStyleBackColor = true;
+            this.btnCompraProductos.Click += new System.EventHandler(this.btnCompraProductos_Click);
             // 
             // btnProductos
             // 
@@ -299,6 +300,7 @@
             this.btnFacturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFacturacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFacturacion.UseVisualStyleBackColor = true;
+            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
             // 
             // btnPartidasContables
             // 

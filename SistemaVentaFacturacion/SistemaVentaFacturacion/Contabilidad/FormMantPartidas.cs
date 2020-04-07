@@ -170,48 +170,98 @@ namespace SistemaVentaFacturacion.Contabilidad
 
         private void GridDetallePartidas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 0)
+            if (IsInsert)
             {
-                try
+                if (e.ColumnIndex == 0)
                 {
-                    if (GridDetallePartidas.CurrentRow.Cells[0].Value == null)
+                    try
                     {
-                        MessageBox.Show("Ingrese el codigo de la cuenta");
-                    }
-                    else
-                    {
-                        try
+                        if (GridDetallePartidas.CurrentRow.Cells[0].Value == null)
                         {
-                            DataTable dt = new DataTable();
-                            dt = scriptsContabilidad.getCuenta(GridDetallePartidas.CurrentRow.Cells[0].Value.ToString());
-                            if (dt.Rows.Count == 1)
+                            MessageBox.Show("Ingrese el codigo de la cuenta");
+                        }
+                        else
+                        {
+                            try
                             {
-                                for (int i = 0; i < dt.Rows.Count; i++)
+                                DataTable dt = new DataTable();
+                                dt = scriptsContabilidad.getCuenta(GridDetallePartidas.CurrentRow.Cells[0].Value.ToString());
+                                if (dt.Rows.Count == 1)
                                 {
-                                    
-                                    GridDetallePartidas.CurrentRow.Cells[1].Value = dt.Rows[i][1].ToString();
-                                    GridDetallePartidas.CurrentRow.Cells[2].Value = dt.Rows[i][3].ToString();
+                                    for (int i = 0; i < dt.Rows.Count; i++)
+                                    {
+
+                                        GridDetallePartidas.CurrentRow.Cells[1].Value = dt.Rows[i][1].ToString();
+                                        GridDetallePartidas.CurrentRow.Cells[2].Value = dt.Rows[i][3].ToString();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Codigo invalido");
                                 }
                             }
-                            else
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("Codigo invalido");
+                                MessageBox.Show(ex.ToString());
                             }
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.ToString());
-                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
                     }
                 }
-                catch (Exception ex)
+            }
+            else
+            {
+                if (e.ColumnIndex == 1)
                 {
-                    MessageBox.Show(ex.ToString());
+                    try
+                    {
+                        if (GridDetallePartidas.CurrentRow.Cells[1].Value == null)
+                        {
+                            MessageBox.Show("Ingrese el codigo de la cuenta");
+                        }
+                        else
+                        {
+                            try
+                            {
+                                DataTable dt = new DataTable();
+                                dt = scriptsContabilidad.getCuenta(GridDetallePartidas.CurrentRow.Cells[1].Value.ToString());
+                                if (dt.Rows.Count == 1)
+                                {
+                                    for (int i = 0; i < dt.Rows.Count; i++)
+                                    {
+
+                                        GridDetallePartidas.CurrentRow.Cells[2].Value = dt.Rows[i][1].ToString();
+                                        GridDetallePartidas.CurrentRow.Cells[3].Value = dt.Rows[i][3].ToString();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Codigo invalido");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString());
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
             }
         }
         public int c;
         public int r;
+
+        private void PDatos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         public void DGData()
         {
@@ -222,15 +272,32 @@ namespace SistemaVentaFacturacion.Contabilidad
 
         private void GridDetallePartidas_KeyDown(object sender, KeyEventArgs e)
         {
-            if (c == 0)
+            if (IsInsert)
             {
-                if (e.KeyData == Keys.F1)
+                if (c == 0)
                 {
-                    FormListaCuenta fm = new FormListaCuenta();
-                    AddOwnedForm(fm);
-                    fm.r = r;
-                    fm.c = c;
-                    fm.ShowDialog();
+                    if (e.KeyData == Keys.F1)
+                    {
+                        FormListaCuenta fm = new FormListaCuenta();
+                        AddOwnedForm(fm);
+                        fm.r = r;
+                        fm.c = c;
+                        fm.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                if (c == 1)
+                {
+                    if (e.KeyData == Keys.F1)
+                    {
+                        FormListaCuenta fm = new FormListaCuenta();
+                        AddOwnedForm(fm);
+                        fm.r = r;
+                        fm.c = c;
+                        fm.ShowDialog();
+                    }
                 }
             }
         }

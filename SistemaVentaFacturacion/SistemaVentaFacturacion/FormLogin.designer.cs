@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnEntrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnEntrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,6 +66,35 @@
             this.groupBox1.Size = new System.Drawing.Size(332, 224);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::SistemaVentaFacturacion.Properties.Resources.cerrar1;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(229, 114);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 38);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Cancelar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnEntrar
+            // 
+            this.btnEntrar.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.Image = global::SistemaVentaFacturacion.Properties.Resources.iniciar_sesion11;
+            this.btnEntrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEntrar.Location = new System.Drawing.Point(136, 114);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(86, 38);
+            this.btnEntrar.TabIndex = 4;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEntrar.UseVisualStyleBackColor = true;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // label1
             // 
@@ -104,34 +133,6 @@
             this.label2.Size = new System.Drawing.Size(116, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Contraseña";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::SistemaVentaFacturacion.Properties.Resources.cerrar1;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(229, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 38);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cancelar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnEntrar
-            // 
-            this.btnEntrar.Font = new System.Drawing.Font("Ubuntu", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntrar.Image = global::SistemaVentaFacturacion.Properties.Resources.iniciar_sesion11;
-            this.btnEntrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEntrar.Location = new System.Drawing.Point(136, 114);
-            this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(86, 38);
-            this.btnEntrar.TabIndex = 4;
-            this.btnEntrar.Text = "Entrar";
-            this.btnEntrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEntrar.UseVisualStyleBackColor = true;
-            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // pictureBox1
             // 

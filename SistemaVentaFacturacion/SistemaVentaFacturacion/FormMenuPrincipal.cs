@@ -1,6 +1,7 @@
 ﻿using LOGICA.LUsuarios;
 using SistemaVentaFacturacion.Clientes;
 using SistemaVentaFacturacion.Contabilidad;
+using SistemaVentaFacturacion.Facturacion;
 using SistemaVentaFacturacion.Inventario;
 using SistemaVentaFacturacion.Productos;
 using SistemaVentaFacturacion.Usuarios;
@@ -206,6 +207,7 @@ namespace SistemaVentaFacturacion
             AbrirFormEnPanel(new FormLogo());
         }
         public bool sesion=false;
+
         private void FormMenuPrincipal_Load(object sender, EventArgs e)
         {
             //seguridad
@@ -327,6 +329,20 @@ namespace SistemaVentaFacturacion
         private void btnProductos_Click(object sender, EventArgs e)
         {
             FormListaProductos fm = new FormListaProductos();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnCompraProductos_Click(object sender, EventArgs e)
+        {
+            FormListaCompras fm = new FormListaCompras();
+            fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
+            AbrirFormEnPanel(fm);
+        }
+
+        private void btnFacturacion_Click(object sender, EventArgs e)
+        {
+            FormListaFacturas fm = new FormListaFacturas();
             fm.FormClosed += new FormClosedEventHandler(MostrarFormLogoAlCerrarForms);
             AbrirFormEnPanel(fm);
         }

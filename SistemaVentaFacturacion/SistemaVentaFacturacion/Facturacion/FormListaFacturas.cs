@@ -10,12 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaVentaFacturacion.Productos
+namespace SistemaVentaFacturacion.Facturacion
 {
-    public partial class FormListaCompras : Form
+    public partial class FormListaFacturas : Form
     {
         public bool busqueda = false;
-        public FormListaCompras()
+        public FormListaFacturas()
         {
             InitializeComponent();
         }
@@ -28,9 +28,9 @@ namespace SistemaVentaFacturacion.Productos
         private void btnEditar_Click(object sender, EventArgs e)
         {
             
-            if (GridCompraProducto.SelectedRows.Count == 1)
+            if (GridFacturas.SelectedRows.Count > 0)
             {
-                FormMantCompras hijo = new FormMantCompras();
+                FormMantFactura hijo = new FormMantFactura();
                 AddOwnedForm(hijo);
                 hijo.IsInsert = false;
                 hijo.FormBorderStyle = FormBorderStyle.None;
@@ -43,9 +43,9 @@ namespace SistemaVentaFacturacion.Productos
                 this.Controls.Add(hijo);
                 this.Tag = hijo;
                 hijo.BringToFront();
-                hijo.txtid.Text = GridCompraProducto.CurrentRow.Cells[0].Value.ToString();
-                hijo.txtDescripcion.Text = GridCompraProducto.CurrentRow.Cells[3].Value.ToString();
-                hijo.fecha.Value = DateTime.Parse(GridCompraProducto.CurrentRow.Cells[1].Value.ToString());
+                hijo.txtid.Text = GridFacturas.CurrentRow.Cells[0].Value.ToString();
+                hijo.txtIdCliente.Text = GridFacturas.CurrentRow.Cells[3].Value.ToString();
+                hijo.fecha.Value = DateTime.Parse(GridFacturas.CurrentRow.Cells[1].Value.ToString());
                 hijo.Show();
 
             }
@@ -55,25 +55,25 @@ namespace SistemaVentaFacturacion.Productos
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-                FormMantCompras hijo = new FormMantCompras();
-                AddOwnedForm(hijo);
-                hijo.IsInsert = true;
-                hijo.FormBorderStyle = FormBorderStyle.None;
-                hijo.TopLevel = false;
-                hijo.Dock = DockStyle.Fill;
-                hijo.Top = (this.Height / 2) - (hijo.Height / 2);
-                hijo.Left = (this.Width / 2) - (hijo.Width / 2);
-                hijo.FormClosed += new FormClosedEventHandler(Form_Closed);
-                hijo.ControlBox = false;
-                this.Controls.Add(hijo);
-                this.Tag = hijo;
-                hijo.BringToFront();
-                hijo.Show();
+            FormMantFactura hijo = new FormMantFactura();
+            AddOwnedForm(hijo);
+            hijo.IsInsert = true;
+            hijo.FormBorderStyle = FormBorderStyle.None;
+            hijo.TopLevel = false;
+            hijo.Dock = DockStyle.Fill;
+            hijo.Top = (this.Height / 2) - (hijo.Height / 2);
+            hijo.Left = (this.Width / 2) - (hijo.Width / 2);
+            hijo.FormClosed += new FormClosedEventHandler(Form_Closed);
+            hijo.ControlBox = false;
+            this.Controls.Add(hijo);
+            this.Tag = hijo;
+            hijo.BringToFront();
+            hijo.Show();
         }
 
         private void Form_Closed(object sender, EventArgs e)
         {
-            GridCompraProducto.DataSource = scriptFacturacion.getGridCompras();
+            GridFacturas.DataSource = scriptFacturacion.getGridFacturas();
         }
 
         private void txtBuscar_Enter(object sender, EventArgs e)
@@ -99,11 +99,31 @@ namespace SistemaVentaFacturacion.Productos
             //Buscar
         }
 
-        private void FormListaCompras_Load(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (GridFacturas.SelectedRows.Count == 1)
+            {
+                if (MessageBox.Show($"¿Está seguro de eliminar la factura: {GridFacturas.CurrentRow.Cells[1].Value.ToString()} Cliente: {GridFacturas.CurrentRow.Cells[2].Value.ToString()}?",
+                   "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    scriptFacturacion.deleteFactura(Convert.ToInt32(GridFacturas.CurrentRow.Cells[0].Value.ToString()));
+                    GridFacturas.DataSource = scriptFacturacion.getGridFacturas();
+                }
+                else
+                {
+                    MessageBox.Show("Eliminacion cancelada");
+                }
+            }
+            else
+                MessageBox.Show("seleccione una fila por favor");
+        }
+
+        private void FormListaFacturas_Load(object sender, EventArgs e)
         {
             try
             {
-                GridCompraProducto.DataSource = scriptFacturacion.getGridCompras();
+                GridFacturas.DataSource = scriptFacturacion.getGridFacturas();
+                GridFacturas.Columns[3].Visible = false;
             }
             catch (Exception ex)
             {
@@ -122,26 +142,12 @@ namespace SistemaVentaFacturacion.Productos
                 }
             }
 
-            validaciones.seguridad_compras(this.Controls, this.AccessibleName);
+            validaciones.seguridad_Facturas(this.Controls, this.AccessibleName);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void GridFacturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (GridCompraProducto.SelectedRows.Count == 1)
-            {
-                if (MessageBox.Show($"¿Está seguro de eliminar la compra: {GridCompraProducto.CurrentRow.Cells[1].Value.ToString()}?",
-                   "Alerta¡¡", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    scriptFacturacion.deleteCompra(Convert.ToInt32(GridCompraProducto.CurrentRow.Cells[0].Value.ToString()));
-                    GridCompraProducto.DataSource = scriptFacturacion.getGridCompras();
-                }
-                else
-                {
-                    MessageBox.Show("Eliminacion cancelada");
-                }
-            }
-            else
-                MessageBox.Show("seleccione una fila por favor");
+
         }
     }
 }

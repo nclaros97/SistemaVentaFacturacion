@@ -19,7 +19,6 @@ C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturac
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Contabilidad.FormMantClasificacionCuenta.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Contabilidad.FormMantCuentas.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Contabilidad.FormMantPartidas.resources
-C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Facturacion.FormFacturacion.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.FormLogin.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Inventario.FormListaInventario.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Productos.FormListaCompras.resources
@@ -43,3 +42,6 @@ C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturac
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormListaRoles.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Usuarios.FormMantPermisosFunciones.resources
 C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Contabilidad.FormListaCuenta.resources
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Productos.FormProductos.resources
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Facturacion.FormListaFacturas.resources
+C:\Users\nilso\Desktop\PROYECTO LIZ\SistemaVentaFacturacion\SistemaVentaFacturacion\obj\Debug\SistemaVentaFacturacion.Facturacion.FormMantFactura.resources

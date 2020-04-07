@@ -112,11 +112,17 @@
     <Compile Include="Contabilidad\FormListaCuenta.designer.cs">
       <DependentUpon>FormListaCuenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\FormFacturacion.cs">
+    <Compile Include="Facturacion\FormListaFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturacion\FormFacturacion.designer.cs">
-      <DependentUpon>FormFacturacion.cs</DependentUpon>
+    <Compile Include="Facturacion\FormListaFacturas.designer.cs">
+      <DependentUpon>FormListaFacturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\FormMantFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\FormMantFactura.designer.cs">
+      <DependentUpon>FormMantFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -154,6 +160,18 @@
     <Compile Include="Productos\FormListaCompras.designer.cs">
       <DependentUpon>FormListaCompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Productos\FormMantCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\FormMantCompras.designer.cs">
+      <DependentUpon>FormMantCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos\FormProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos\FormProductos.designer.cs">
+      <DependentUpon>FormProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Productos\FormListaProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,12 +195,6 @@
     </Compile>
     <Compile Include="Productos\FormMantCategorias.designer.cs">
       <DependentUpon>FormMantCategorias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Productos\FormMantCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Productos\FormMantCompras.designer.cs">
-      <DependentUpon>FormMantCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\FormMantProductos.cs">
       <SubType>Form</SubType>
@@ -246,8 +258,11 @@
     <EmbeddedResource Include="Contabilidad\FormListaCuenta.resx">
       <DependentUpon>FormListaCuenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\FormFacturacion.resx">
-      <DependentUpon>FormFacturacion.cs</DependentUpon>
+    <EmbeddedResource Include="Facturacion\FormListaFacturas.resx">
+      <DependentUpon>FormListaFacturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\FormMantFactura.resx">
+      <DependentUpon>FormMantFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -267,6 +282,12 @@
     <EmbeddedResource Include="Productos\FormListaCompras.resx">
       <DependentUpon>FormListaCompras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Productos\FormMantCompras.resx">
+      <DependentUpon>FormMantCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos\FormProductos.resx">
+      <DependentUpon>FormProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Productos\FormListaProductos.resx">
       <DependentUpon>FormListaProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,9 +299,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\FormMantCategorias.resx">
       <DependentUpon>FormMantCategorias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Productos\FormMantCompras.resx">
-      <DependentUpon>FormMantCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\FormMantProductos.resx">
       <DependentUpon>FormMantProductos.cs</DependentUpon>

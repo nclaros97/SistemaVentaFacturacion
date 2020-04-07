@@ -38,15 +38,19 @@ namespace SistemaVentaFacturacion
 
             try
             {
+                //verificar si el usuario existe o los datos son correctos
                 if (scriptsUsuarios.Login(txtUsuario.Text, txtPass.Text))
                 {
 
                     try
                     {
+                        //si el usuario existe se obtienen los datos de permisos y funciones
                         DataTable credenciales = new DataTable();
                         credenciales = scriptsUsuarios.getCredencialesUsuario(txtUsuario.Text, txtPass.Text);
                         string usuNick = "";
                         string rolesDescrip = "";
+                        //se crea una lista de la clase funciones y otra de la clase permiso para agregar los permisos y funciones del usuario para poder acceder a ellos en el sistema
+                        //para poder verificar los accesos del sistema
                         List<funciones> funciones = new List<funciones>();
                         List<permisos> permisos = new List<permisos>();
                         List<string> rolDescrip = new List<string>();
@@ -59,6 +63,8 @@ namespace SistemaVentaFacturacion
                                 UserNick = credenciales.Rows[i][0].ToString(),
                                 UserId = Convert.ToInt32(credenciales.Rows[i][8].ToString())
                             });
+                            //verificar si en los datos retornados del usuario existe rol asignado 
+                            //si no existe no se agrega la lista
                             if (!credenciales.Rows[i][3].ToString().Equals(""))
                             {
                                 rolDescrip.Add($"{credenciales.Rows[i][3].ToString()} \n");
@@ -87,11 +93,12 @@ namespace SistemaVentaFacturacion
                             rolesDescrip += $"{rol}";
                         }
                         MessageBox.Show($"Sesion Iniciada como: {usuNick} Rol(es): \n{rolesDescrip}");
-
+                        //cierra formulario y estable la sesion en el sistema como verdadero.
                         FormMenuPrincipal frm = Owner as FormMenuPrincipal;
                         frm.sesion = true;
                         frm.cerrar = false;
                         frm.isLogin = false;
+                        //se muestran los datos del usuario logeado
                         frm.nombreCompleto = $"{credenciales.Rows[0][6].ToString()} {credenciales.Rows[0][7].ToString()}";
                         frm.correo = $"{credenciales.Rows[0][1].ToString()}";
                         frm.cargos = rolesDescrip;
@@ -106,6 +113,7 @@ namespace SistemaVentaFacturacion
                 }
                 else
                 {
+                    //si los datos son incorrectos la sesion sigue en falso y vueve al login
                     FormMenuPrincipal frm = Owner as FormMenuPrincipal;
                     frm.sesion = false;
                     frm.cerrar = false;
@@ -125,6 +133,11 @@ namespace SistemaVentaFacturacion
             frm.cerrar = c;
             this.Close();
             Application.Exit();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -138,6 +138,107 @@ namespace LOGICA.LUsuarios
             }
         }
 
+        public static void seguridad_FormularioCompras(Control.ControlCollection controls, string accName)
+        {
+            foreach (Control control in controls)
+            {
+                if (control is Button)
+                {
+                    foreach (var funcion in funcionesG)
+                    {
+                        if (accName.Equals(funcion.NombreFuncion))
+                        {
+                            foreach (var item in permisosG)
+                            {
+                                if (control.Text.Equals("Editar"))
+                                {
+                                    if (item.Permiso.Equals(control.AccessibleName) && item.NombreFuncion.Equals("Formulario Detalle Partida") && item.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                                else if (control.Text.Equals("Eliminar"))
+                                {
+                                    if (item.Permiso.Equals(control.AccessibleName) && item.NombreFuncion.Equals("Formulario Detalle Partida") && item.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                                else
+                                {
+                                    if (item.Permiso.Equals(control.AccessibleName) && item.NombreFuncion.Equals(accName) && item.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        public static void seguridad_compras(Control.ControlCollection controls, string name)
+        {
+            try
+            {
+                foreach (var funcion in funcionesG)
+                {
+                    if (funcion.NombreFuncion.Equals(name))
+                    {
+                        foreach (var permiso in permisosG)
+                        {
+                            foreach (Control control in controls)
+                            {
+                                if (control is Button)
+                                {
+                                    if (permiso.Permiso.Equals(control.AccessibleName) && permiso.NombreFuncion.Equals(name) && permiso.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR SEGURIAD COMPRA PRODUCTO: \n{ex.ToString()}");
+            }
+        }
+
+        public static void seguridad_Facturas(Control.ControlCollection controls, string name)
+        {
+            try
+            {
+                foreach (var funcion in funcionesG)
+                {
+                    if (funcion.NombreFuncion.Equals(name))
+                    {
+                        foreach (var permiso in permisosG)
+                        {
+                            foreach (Control control in controls)
+                            {
+                                if (control is Button)
+                                {
+                                    if (permiso.Permiso.Equals(control.AccessibleName) && permiso.NombreFuncion.Equals(name) && permiso.Nivel)
+                                    {
+                                        control.Enabled = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"ERROR SEGURIAD COMPRA PRODUCTO: \n{ex.ToString()}");
+            }
+        }
+
         public static void seguridad_Unidades(Control.ControlCollection controls, string name)
         {
             try
